@@ -3,6 +3,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 
 import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
 import { Typography } from "@mui/material";
@@ -19,7 +20,7 @@ import { useMediaQuery } from "@mui/material";
 import { useScrollTrigger } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 const drawerWidth = 240;
 
@@ -27,33 +28,27 @@ const useStyle = makeStyles((theme) => {
   return {
     appbar: {
       padding: "1rem 0",
-      backgroundColor: "white",
     },
     toolbar: {
       width: "90%",
       margin: "0 auto",
+      display: "flex",
+      justifyContent: "space-between",
     },
     offset: {
       ...theme.mixins.toolbar,
       margin: "1rem 0",
     },
     logo: {
-      color: theme.palette.grey[800],
       fontWeight: 600,
       textDecoration: "none",
+      color: theme.palette.grey[900],
     },
     tabs: {
       marginLeft: "auto",
     },
     tab: {
       minWidth: 120,
-      color: theme.palette.grey[800],
-    },
-    menuBtn: {
-      marginLeft: "auto",
-    },
-    menuIcon: {
-      color: theme.palette.grey[800],
     },
     drawer: {
       width: drawerWidth,
@@ -72,7 +67,7 @@ const useStyle = makeStyles((theme) => {
       backgroundColor: theme.palette.divider,
     },
     drawerBackBtn: {
-      marginLeft: theme.spacing(1),
+      //marginLeft: theme.spacing(1),
     },
   };
 });
@@ -141,10 +136,46 @@ function Header(props) {
     []
   );
 
+  const StyledTabs = styled((props) => (
+    <Tabs
+      {...props}
+      TabIndicatorProps={{
+        children: <span className="MuiTabs-indicatorSpan" />,
+      }}
+    />
+  ))({
+    "& .MuiTabs-indicator": {
+      display: "flex",
+      justifyContent: "center",
+      backgroundColor: "transparent",
+    },
+    "& .MuiTabs-indicatorSpan": {
+      maxWidth: 40,
+      width: "100%",
+      backgroundColor: "#635ee7",
+    },
+  });
+
+  const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+    ({ theme }) => ({
+      textTransform: "none",
+      fontWeight: theme.typography.fontWeightRegular,
+      fontSize: theme.typography.pxToRem(15),
+      marginRight: theme.spacing(1),
+      color: "black",
+      "&.Mui-selected": {
+        color: "black",
+      },
+      "&.Mui-focusVisible": {
+        backgroundColor: "black",
+      },
+    })
+  );
+
   const tabs = (
-    <Tabs value={activeIndex} indicatorColor="primary" className={classes.tabs}>
+    <StyledTabs value={activeIndex}>
       {tabsInfo.map((item, index) => (
-        <Tab
+        <StyledTab
           key={index}
           label={item.name}
           component={Link}
@@ -152,7 +183,7 @@ function Header(props) {
           className={classes.tab}
         />
       ))}
-    </Tabs>
+    </StyledTabs>
   );
 
   const drawList = (
@@ -194,7 +225,7 @@ function Header(props) {
             onClick={toggleDrawerHandler(false)}
             className={classes.drawerBackBtn}
           >
-            <ArrowBackIosIcon />
+            <ChevronLeftIcon />
           </IconButton>
         </div>
         <Divider className={classes.divider} light />
@@ -207,7 +238,12 @@ function Header(props) {
     <>
       <div>
         <ElevationScroll>
-          <AppBar elevation={0} position="fixed" className={classes.appbar}>
+          <AppBar
+            elevation={0}
+            color="transparent"
+            position="fixed"
+            className={classes.appbar}
+          >
             <Toolbar className={classes.toolbar}>
               <Typography
                 variant="h5"
@@ -215,7 +251,7 @@ function Header(props) {
                 to="/home"
                 className={classes.logo}
               >
-                Beauty
+                La Beauté
               </Typography>
               {matches ? drawer : tabs}
             </Toolbar>

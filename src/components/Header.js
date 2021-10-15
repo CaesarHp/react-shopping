@@ -45,10 +45,9 @@ const useStyle = makeStyles((theme) => {
       color: theme.palette.grey[900],
     },
     tabs: {
-      marginLeft: "auto",
-    },
-    tab: {
-      minWidth: 120,
+      "& .MuiTabs-indicator": {
+        backgroundColor: "black",
+      },
     },
     drawer: {
       width: drawerWidth,
@@ -136,25 +135,25 @@ function Header(props) {
     []
   );
 
-  const StyledTabs = styled((props) => (
-    <Tabs
-      {...props}
-      TabIndicatorProps={{
-        children: <span className="MuiTabs-indicatorSpan" />,
-      }}
-    />
-  ))({
-    "& .MuiTabs-indicator": {
-      display: "flex",
-      justifyContent: "center",
-      backgroundColor: "transparent",
-    },
-    "& .MuiTabs-indicatorSpan": {
-      maxWidth: 40,
-      width: "100%",
-      backgroundColor: "#635ee7",
-    },
-  });
+  // const StyledTabs = styled((props) => (
+  //   <Tabs
+  //     {...props}
+  //     TabIndicatorProps={{
+  //       children: <span className="MuiTabs-indicatorSpan" />,
+  //     }}
+  //   />
+  // ))({
+  //   "& .MuiTabs-indicator": {
+  //     display: "flex",
+  //     justifyContent: "center",
+  //     backgroundColor: "transparent",
+  //   },
+  //   "& .MuiTabs-indicatorSpan": {
+  //     maxWidth: 40,
+  //     width: "100%",
+  //     backgroundColor: "#635ee7",
+  //   },
+  // });
 
   const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     ({ theme }) => ({
@@ -173,17 +172,16 @@ function Header(props) {
   );
 
   const tabs = (
-    <StyledTabs value={activeIndex}>
+    <Tabs value={activeIndex} className={classes.tabs}>
       {tabsInfo.map((item, index) => (
         <StyledTab
           key={index}
           label={item.name}
           component={Link}
           to={item.link}
-          className={classes.tab}
         />
       ))}
-    </StyledTabs>
+    </Tabs>
   );
 
   const drawList = (

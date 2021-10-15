@@ -15,7 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <ScrollToTop />
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={theme}>
           <Layout>
             <Switch>
               <Route path="/" exact>

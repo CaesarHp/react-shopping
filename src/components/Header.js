@@ -9,6 +9,7 @@ import { Toolbar } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Tabs } from "@mui/material";
 import { Tab } from "@mui/material";
+import { Badge } from "@mui/material";
 import { Drawer } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { List } from "@mui/material";
@@ -20,7 +21,10 @@ import { useMediaQuery } from "@mui/material";
 import { useScrollTrigger } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
+import SearchIcon from "@mui/icons-material/Search";
 
 const drawerWidth = 240;
 
@@ -47,6 +51,19 @@ const useStyle = makeStyles((theme) => {
     tabs: {
       "& .MuiTabs-indicator": {
         backgroundColor: "black",
+        height: "1px",
+      },
+    },
+    headerBtnContainer: {
+      display: "flex",
+      alignItems: "center",
+    },
+    headerBtn: {
+      margin: "0 0.5rem",
+    },
+    badge: {
+      "& .MuiBadge-badge": {
+        backgroundColor: theme.palette.grey[300],
       },
     },
     drawer: {
@@ -58,7 +75,7 @@ const useStyle = makeStyles((theme) => {
     drawerHeader: {
       display: "flex",
       alignItems: "center",
-
+      padding: theme.spacing(0, 1),
       ...theme.mixins.toolbar,
       justifyContent: "flex-start",
     },
@@ -135,26 +152,6 @@ function Header(props) {
     []
   );
 
-  // const StyledTabs = styled((props) => (
-  //   <Tabs
-  //     {...props}
-  //     TabIndicatorProps={{
-  //       children: <span className="MuiTabs-indicatorSpan" />,
-  //     }}
-  //   />
-  // ))({
-  //   "& .MuiTabs-indicator": {
-  //     display: "flex",
-  //     justifyContent: "center",
-  //     backgroundColor: "transparent",
-  //   },
-  //   "& .MuiTabs-indicatorSpan": {
-  //     maxWidth: 40,
-  //     width: "100%",
-  //     backgroundColor: "#635ee7",
-  //   },
-  // });
-
   const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     ({ theme }) => ({
       textTransform: "none",
@@ -172,16 +169,48 @@ function Header(props) {
   );
 
   const tabs = (
-    <Tabs value={activeIndex} className={classes.tabs}>
-      {tabsInfo.map((item, index) => (
-        <StyledTab
-          key={index}
-          label={item.name}
-          component={Link}
-          to={item.link}
-        />
-      ))}
-    </Tabs>
+    <div>
+      <Tabs value={activeIndex} className={classes.tabs}>
+        {tabsInfo.map((item, index) => (
+          <StyledTab
+            key={index}
+            label={item.name}
+            component={Link}
+            to={item.link}
+          />
+        ))}
+      </Tabs>
+    </div>
+  );
+
+  const btn = (
+    <div className={classes.headerBtnContainer}>
+      <div className={classes.headerBtn}>
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+      </div>
+      <div className={classes.headerBtn}>
+        <IconButton>
+          <Badge badgeContent={1} className={classes.badge}>
+            <ShoppingCartIcon />
+          </Badge>
+        </IconButton>
+      </div>
+      <div className={classes.headerBtn}>
+        <IconButton>
+          <PersonIcon />
+        </IconButton>
+      </div>
+      {matches ? (
+        <IconButton
+          onClick={toggleDrawerHandler(true)}
+          className={classes.menuBtn}
+        >
+          <MenuIcon className={classes.menuIcon} />
+        </IconButton>
+      ) : null}
+    </div>
   );
 
   const drawList = (
@@ -203,12 +232,6 @@ function Header(props) {
 
   const drawer = (
     <>
-      <IconButton
-        onClick={toggleDrawerHandler(true)}
-        className={classes.menuBtn}
-      >
-        <MenuIcon className={classes.menuIcon} />
-      </IconButton>
       <Drawer
         anchor="right"
         open={drawerState}
@@ -223,7 +246,7 @@ function Header(props) {
             onClick={toggleDrawerHandler(false)}
             className={classes.drawerBackBtn}
           >
-            <ChevronLeftIcon />
+            <ChevronRightIcon />
           </IconButton>
         </div>
         <Divider className={classes.divider} light />
@@ -252,6 +275,7 @@ function Header(props) {
                 La Beauté
               </Typography>
               {matches ? drawer : tabs}
+              {btn}
             </Toolbar>
           </AppBar>
         </ElevationScroll>

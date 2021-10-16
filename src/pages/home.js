@@ -1,7 +1,13 @@
 import React from "react";
 
-function home() {
-  return <div>Home</div>;
+import HomeBanner from "../components/HomeBanner";
+
+function Home() {
+  return (
+    <>
+      <HomeBanner />
+    </>
+  );
 }
 
-export default home;
+export default Home;

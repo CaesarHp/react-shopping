@@ -6,6 +6,7 @@ import { responsiveFontSizes } from "@mui/material";
 import ScrollToTop from "./components/ScrollToTop";
 import Theme from "./ui/Theme";
 import Layout from "./ui/Layout";
+import Home from "./pages/Home";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -22,7 +23,7 @@ function App() {
                 <Redirect to="/home" />
               </Route>
               <Route path="/home" exact>
-                Home
+                <Home />
               </Route>
               <Route path="/shop" exact>
                 Shop

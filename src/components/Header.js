@@ -64,6 +64,7 @@ const useStyle = makeStyles((theme) => {
     badge: {
       "& .MuiBadge-badge": {
         backgroundColor: theme.palette.grey[300],
+        color: "black",
       },
     },
     drawer: {
@@ -81,9 +82,6 @@ const useStyle = makeStyles((theme) => {
     },
     divider: {
       backgroundColor: theme.palette.divider,
-    },
-    drawerBackBtn: {
-      //marginLeft: theme.spacing(1),
     },
   };
 });
@@ -157,7 +155,7 @@ function Header(props) {
       textTransform: "none",
       fontWeight: theme.typography.fontWeightRegular,
       fontSize: theme.typography.pxToRem(15),
-      marginRight: theme.spacing(1),
+      //marginRight: theme.spacing(1),
       color: "black",
       "&.Mui-selected": {
         color: "black",
@@ -187,19 +185,19 @@ function Header(props) {
     <div className={classes.headerBtnContainer}>
       <div className={classes.headerBtn}>
         <IconButton>
-          <SearchIcon />
+          <SearchIcon style={{ color: "black" }} />
         </IconButton>
       </div>
       <div className={classes.headerBtn}>
         <IconButton>
           <Badge badgeContent={1} className={classes.badge}>
-            <ShoppingCartIcon />
+            <ShoppingCartIcon style={{ color: "black" }} />
           </Badge>
         </IconButton>
       </div>
       <div className={classes.headerBtn}>
         <IconButton>
-          <PersonIcon />
+          <PersonIcon style={{ color: "black" }} />
         </IconButton>
       </div>
       {matches ? (
@@ -242,10 +240,7 @@ function Header(props) {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton
-            onClick={toggleDrawerHandler(false)}
-            className={classes.drawerBackBtn}
-          >
+          <IconButton onClick={toggleDrawerHandler(false)}>
             <ChevronRightIcon />
           </IconButton>
         </div>
@@ -279,7 +274,6 @@ function Header(props) {
             </Toolbar>
           </AppBar>
         </ElevationScroll>
-        <div className={classes.offset} />
       </div>
     </>
   );

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     height: "95vh",
     display: "flex",
     alignItems: "center",
-    padding: "0",
+    padding: "0 4rem",
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       width: "90%",
@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     borderRadius: 0,
+    padding: "1rem 2rem",
     backgroundColor: "black",
     fontWeight: 400,
   },
@@ -52,11 +53,11 @@ function HomeBanner() {
   return (
     <>
       <div className={classes.root}>
-        <Container className={classes.container}>
+        <div className={classes.container}>
           <Grid container>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={4}>
               <Typography variant="h2" className={classes.title}>
-                Organic Skin Care
+                Organic Beauty
               </Typography>
 
               <Typography variant="body1" className={classes.body}>
@@ -73,12 +74,12 @@ function HomeBanner() {
                 to="/shop"
                 className={classes.btn}
               >
-                Shop All
+                Skin care
               </Button>
             </Grid>
-            <Grid item md={6}></Grid>
+            <Grid item md={8}></Grid>
           </Grid>
-        </Container>
+        </div>
       </div>
     </>
   );

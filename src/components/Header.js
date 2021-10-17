@@ -51,7 +51,7 @@ const useStyle = makeStyles((theme) => {
     tabs: {
       "& .MuiTabs-indicator": {
         backgroundColor: "black",
-        height: "1px",
+        height: "2px",
       },
     },
     headerBtnContainer: {

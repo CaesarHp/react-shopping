@@ -19,6 +19,7 @@ import { Divider } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
 import { useScrollTrigger } from "@material-ui/core";
+import Fade from "@material-ui/core/Fade";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -86,18 +87,21 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-function ElevationScroll(props) {
-  const { children } = props;
-
+const ScrollHandler = (props) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 0,
+    threshold: 100,
+    target: props.window ? window() : undefined,
   });
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
+  return React.cloneElement(props.children, {
+    style: {
+      backgroundColor: trigger ? "white" : "transparent",
+      transition: trigger ? "0.3s" : "0.5s",
+      boxShadow: "none",
+    },
   });
-}
+};
 
 function Header(props) {
   const classes = useStyles();
@@ -260,7 +264,7 @@ function Header(props) {
   return (
     <>
       <div>
-        <ElevationScroll>
+        <ScrollHandler {...props}>
           <AppBar
             elevation={0}
             color="transparent"
@@ -280,7 +284,7 @@ function Header(props) {
               {btn}
             </Toolbar>
           </AppBar>
-        </ElevationScroll>
+        </ScrollHandler>
       </div>
     </>
   );

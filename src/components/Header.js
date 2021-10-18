@@ -4,21 +4,21 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@mui/material/styles";
-import { AppBar } from "@mui/material";
-import { Toolbar } from "@mui/material";
-import { Typography } from "@mui/material";
-import { Tabs } from "@mui/material";
-import { Tab } from "@mui/material";
-import { Badge } from "@mui/material";
-import { Drawer } from "@mui/material";
-import { IconButton } from "@mui/material";
-import { List } from "@mui/material";
-import { ListItem } from "@mui/material";
-import { ListItemText } from "@mui/material";
-import { Divider } from "@mui/material";
-import { useTheme } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
-import { useScrollTrigger } from "@mui/material";
+import { AppBar } from "@material-ui/core";
+import { Toolbar } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import { Tabs } from "@material-ui/core";
+import { Tab } from "@material-ui/core";
+import { Badge } from "@material-ui/core";
+import { Drawer } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { List } from "@material-ui/core";
+import { ListItem } from "@material-ui/core";
+import { ListItemText } from "@material-ui/core";
+import { Divider } from "@material-ui/core";
+import { useTheme } from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
+import { useScrollTrigger } from "@material-ui/core";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -28,7 +28,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const drawerWidth = 240;
 
-const useStyle = makeStyles((theme) => {
+const useStyles = makeStyles((theme) => {
   return {
     appbar: {
       padding: "1rem 0",
@@ -44,7 +44,7 @@ const useStyle = makeStyles((theme) => {
       margin: "1rem 0",
     },
     logo: {
-      fontWeight: 600,
+      fontWeight: 500,
       textDecoration: "none",
       color: theme.palette.grey[900],
     },
@@ -100,7 +100,7 @@ function ElevationScroll(props) {
 }
 
 function Header(props) {
-  const classes = useStyle();
+  const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -153,7 +153,7 @@ function Header(props) {
   const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     ({ theme }) => ({
       textTransform: "none",
-      fontWeight: theme.typography.fontWeightRegular,
+      fontWeight: 500,
       fontSize: theme.typography.pxToRem(15),
       //marginRight: theme.spacing(1),
       color: "#212121",
@@ -183,11 +183,22 @@ function Header(props) {
 
   const btn = (
     <div className={classes.headerBtnContainer}>
-      <div className={classes.headerBtn}>
-        <IconButton>
-          <SearchIcon style={{ color: "#212121" }} />
-        </IconButton>
-      </div>
+      {matches ? null : (
+        <div className={classes.headerBtn}>
+          <IconButton>
+            <SearchIcon style={{ color: "#212121" }} />
+          </IconButton>
+        </div>
+      )}
+
+      {matches ? null : (
+        <div className={classes.headerBtn}>
+          <IconButton>
+            <PersonIcon style={{ color: "#212121" }} />
+          </IconButton>
+        </div>
+      )}
+
       <div className={classes.headerBtn}>
         <IconButton>
           <Badge badgeContent={1} className={classes.badge}>
@@ -195,11 +206,7 @@ function Header(props) {
           </Badge>
         </IconButton>
       </div>
-      <div className={classes.headerBtn}>
-        <IconButton>
-          <PersonIcon style={{ color: "#212121" }} />
-        </IconButton>
-      </div>
+
       {matches ? (
         <IconButton
           onClick={toggleDrawerHandler(true)}

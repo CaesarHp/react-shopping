@@ -24,12 +24,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    color: theme.palette.grey[200],
+    color: theme.palette.grey[300],
     marginBottom: theme.spacing(3),
   },
   body: {
     color: theme.palette.grey[300],
-    fontWeight: 300,
+    fontWeight: 200,
   },
   aboutContainer: {
     width: "80%",
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey[200],
   },
   contactInfo: {
-    fontWeight: 300,
+    fontWeight: 200,
     marginLeft: theme.spacing(2),
   },
   input: {
@@ -60,11 +60,12 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       border: "1px solid #eeeeee",
       color: "#eeeeee",
+      backgroundColor: theme.palette.grey[800],
     },
   },
   copyright: {
     color: theme.palette.grey[300],
-    fontWeight: 400,
+    fontWeight: 200,
     marginTop: "2rem",
   },
 }));

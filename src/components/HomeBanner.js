@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Container } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
@@ -28,22 +27,29 @@ const useStyles = makeStyles((theme) => ({
       width: "90%",
     },
   },
+  marginTop: {
+    marginTop: "8rem",
+  },
   title: {
-    color: "black",
+    color: theme.palette.grey[900],
     fontWeight: 300,
     letterSpacing: "1px",
     marginBottom: theme.spacing(2),
   },
   body: {
-    color: "black",
+    color: theme.palette.grey[900],
     fontWeight: 400,
     marginBottom: theme.spacing(4),
   },
   btn: {
     borderRadius: 0,
     padding: "1rem 2rem",
-    backgroundColor: "black",
+    backgroundColor: theme.palette.grey[900],
     fontWeight: 400,
+
+    "&:hover": {
+      backgroundColor: theme.palette.grey[800],
+    },
   },
 }));
 
@@ -54,7 +60,7 @@ function HomeBanner() {
     <>
       <div className={classes.root}>
         <div className={classes.container}>
-          <Grid container>
+          <Grid container className={classes.marginTop}>
             <Grid item xs={12} md={4}>
               <Typography variant="h2" className={classes.title}>
                 Organic Beauty

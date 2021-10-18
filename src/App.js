@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import { ThemeProvider } from "@mui/material/styles";
-import { responsiveFontSizes } from "@mui/material";
+import { ThemeProvider } from "@material-ui/core";
+import { responsiveFontSizes } from "@material-ui/core";
 
 import ScrollToTop from "./components/ScrollToTop";
 import Theme from "./ui/Theme";

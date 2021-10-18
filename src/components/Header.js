@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 
 import { Link, useLocation, useHistory } from "react-router-dom";
 
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@mui/material/styles";
 import { AppBar } from "@mui/material";
 import { Toolbar } from "@mui/material";
@@ -50,7 +50,7 @@ const useStyle = makeStyles((theme) => {
     },
     tabs: {
       "& .MuiTabs-indicator": {
-        backgroundColor: "black",
+        backgroundColor: "#212121",
         height: "2px",
       },
     },
@@ -156,12 +156,12 @@ function Header(props) {
       fontWeight: theme.typography.fontWeightRegular,
       fontSize: theme.typography.pxToRem(15),
       //marginRight: theme.spacing(1),
-      color: "black",
+      color: "#212121",
       "&.Mui-selected": {
-        color: "black",
+        color: "#212121",
       },
       "&.Mui-focusVisible": {
-        backgroundColor: "black",
+        backgroundColor: "#212121",
       },
     })
   );
@@ -185,19 +185,19 @@ function Header(props) {
     <div className={classes.headerBtnContainer}>
       <div className={classes.headerBtn}>
         <IconButton>
-          <SearchIcon style={{ color: "black" }} />
+          <SearchIcon style={{ color: "#212121" }} />
         </IconButton>
       </div>
       <div className={classes.headerBtn}>
         <IconButton>
           <Badge badgeContent={1} className={classes.badge}>
-            <ShoppingCartIcon style={{ color: "black" }} />
+            <ShoppingCartIcon style={{ color: "#212121" }} />
           </Badge>
         </IconButton>
       </div>
       <div className={classes.headerBtn}>
         <IconButton>
-          <PersonIcon style={{ color: "black" }} />
+          <PersonIcon style={{ color: "#212121" }} />
         </IconButton>
       </div>
       {matches ? (

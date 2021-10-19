@@ -15,9 +15,9 @@ import SocialMedia from "../ui/SocialMedia";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "4rem 5rem",
+    padding: "4rem 0",
     color: "white",
-    backgroundColor: theme.palette.grey[900],
+    backgroundColor: "black",
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       padding: "4rem 0",
@@ -106,7 +106,7 @@ function Footer() {
           container
           justifyContent="center"
           rowSpacing={matches ? 4 : 0}
-          columnSpacing={matches ? 0 : 4}
+          //columnSpacing={matches ? 0 : 4}
         >
           <Grid item xs={12} md={4}>
             <Grid container justifyContent="center">
@@ -119,10 +119,8 @@ function Footer() {
                   La Beauté
                 </Typography>
                 <Typography variant="body2" className={classes.body}>
-                  Bringing people together is what we’ve done since opening our
-                  first SOHO Hotel in 1950. Now we’re deeply rooted in over 400
-                  communities across the globe. We are proud to act as a point
-                  of connection for millions of travelers, many just like you.
+                  Our formulations have proven efficacy, contain organic
+                  ingredients only and are 100% cruelty free.
                 </Typography>
 
                 <SocialMedia

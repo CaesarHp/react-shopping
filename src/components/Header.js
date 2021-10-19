@@ -14,12 +14,12 @@ import { Drawer } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
+import { ListItemIcon } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
 import { useScrollTrigger } from "@material-ui/core";
-import Fade from "@material-ui/core/Fade";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -45,13 +45,14 @@ const useStyles = makeStyles((theme) => {
       margin: "1rem 0",
     },
     logo: {
-      fontWeight: 500,
+      fontWeight: 300,
       textDecoration: "none",
-      color: theme.palette.grey[900],
+      color: "black",
+      letterSpacing: "2px",
     },
     tabs: {
       "& .MuiTabs-indicator": {
-        backgroundColor: "#212121",
+        backgroundColor: "black",
         height: "2px",
       },
     },
@@ -90,7 +91,7 @@ const useStyles = makeStyles((theme) => {
 const ScrollHandler = (props) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 100,
+    threshold: 50,
     target: props.window ? window() : undefined,
   });
 
@@ -160,12 +161,12 @@ function Header(props) {
       fontWeight: 500,
       fontSize: theme.typography.pxToRem(15),
       //marginRight: theme.spacing(1),
-      color: "#212121",
+      color: "black",
       "&.Mui-selected": {
-        color: "#212121",
+        color: "black",
       },
       "&.Mui-focusVisible": {
-        backgroundColor: "#212121",
+        backgroundColor: "black",
       },
     })
   );
@@ -190,7 +191,7 @@ function Header(props) {
       {matches ? null : (
         <div className={classes.headerBtn}>
           <IconButton>
-            <SearchIcon style={{ color: "#212121" }} />
+            <SearchIcon style={{ color: "black" }} />
           </IconButton>
         </div>
       )}
@@ -198,7 +199,7 @@ function Header(props) {
       {matches ? null : (
         <div className={classes.headerBtn}>
           <IconButton>
-            <PersonIcon style={{ color: "#212121" }} />
+            <PersonIcon style={{ color: "black" }} />
           </IconButton>
         </div>
       )}
@@ -206,7 +207,7 @@ function Header(props) {
       <div className={classes.headerBtn}>
         <IconButton>
           <Badge badgeContent={1} className={classes.badge}>
-            <ShoppingCartIcon style={{ color: "#212121" }} />
+            <ShoppingCartIcon style={{ color: "black" }} />
           </Badge>
         </IconButton>
       </div>
@@ -257,6 +258,19 @@ function Header(props) {
         </div>
         <Divider className={classes.divider} light />
         {drawList}
+        <Divider className={classes.divider} light />
+        <List>
+          <ListItem button>
+            <ListItemIcon>
+              <SearchIcon style={{ color: "black" }} />
+            </ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <PersonIcon style={{ color: "black" }} />
+            </ListItemIcon>
+          </ListItem>
+        </List>
       </Drawer>
     </>
   );

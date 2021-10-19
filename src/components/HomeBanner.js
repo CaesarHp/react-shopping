@@ -24,32 +24,38 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 4rem",
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
-      width: "90%",
-      padding: "0",
+      justifyContent: "center",
+      padding: 0,
     },
   },
-  marginTop: {
+  contentContainer: {
     marginTop: "8rem",
+
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      width: "90%",
+      padding: 0,
+    },
   },
   title: {
-    color: theme.palette.grey[900],
+    color: "black",
     fontWeight: 300,
     letterSpacing: "1px",
     marginBottom: theme.spacing(2),
   },
   body: {
-    color: theme.palette.grey[900],
+    color: "black",
     fontWeight: 400,
     marginBottom: theme.spacing(4),
   },
   btn: {
     borderRadius: 0,
     padding: "1rem 2rem",
-    backgroundColor: theme.palette.grey[900],
+    backgroundColor: "black",
     fontWeight: 400,
 
     "&:hover": {
-      backgroundColor: theme.palette.grey[800],
+      backgroundColor: theme.palette.grey[900],
     },
   },
 }));
@@ -61,7 +67,7 @@ function HomeBanner() {
     <>
       <div className={classes.root}>
         <div className={classes.container}>
-          <Grid container className={classes.marginTop}>
+          <Grid container className={classes.contentContainer}>
             <Grid item xs={12} md={5}>
               <Typography variant="h2" className={classes.title}>
                 Organic Beauty

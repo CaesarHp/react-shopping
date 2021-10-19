@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => {
       margin: "1rem 0",
     },
     logo: {
-      fontWeight: 300,
+      fontWeight: 400,
       textDecoration: "none",
       color: "black",
       letterSpacing: "2px",

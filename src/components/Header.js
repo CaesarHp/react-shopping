@@ -99,7 +99,7 @@ const ScrollHandler = (props) => {
     style: {
       backgroundColor: trigger ? "white" : "transparent",
       transition: trigger ? "0.3s" : "0.5s",
-      boxShadow: "none",
+      boxShadow: trigger ? "0px 1px 5px rgba(0, 0, 0, .2)" : "none",
     },
   });
 };

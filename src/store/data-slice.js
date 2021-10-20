@@ -12,37 +12,37 @@ const dataSlice = createSlice({
   initialState: {
     roomsInfo: [
       {
-        name: "Spray",
+        name: "Spring Spray",
         price: 89.99,
         img: spray,
         id: "spray",
       },
       {
-        name: "Pump",
+        name: "Moistoriszer",
         price: 89.99,
         img: pump,
         id: "pump",
       },
       {
-        name: "Drop",
+        name: "Treatment Oil",
         price: 89.99,
         img: drop,
         id: "drop",
       },
       {
-        name: "Jar",
+        name: "Firming Cream",
         price: 89.99,
         img: jar,
         id: "jar",
       },
       {
-        name: "Spray Grey",
+        name: "Setting Spray",
         price: 89.99,
         img: sprayGrey,
         id: "spray-grey",
       },
       {
-        name: "Pump Grey",
+        name: "Body Lotion",
         price: 89.99,
         img: pumpGrey,
         id: "pump-grey",

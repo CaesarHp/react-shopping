@@ -53,6 +53,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem 2rem",
     backgroundColor: "black",
     fontWeight: 400,
+    textTransform: "none",
+    marginRight: "2rem",
 
     "&:hover": {
       backgroundColor: theme.palette.grey[900],
@@ -69,7 +71,7 @@ function HomeBanner() {
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
             <Grid item xs={12} md={5}>
-              <Typography variant="h2" className={classes.title}>
+              <Typography variant="h3" className={classes.title}>
                 Organic Beauty
               </Typography>
 
@@ -87,7 +89,7 @@ function HomeBanner() {
                 to="/shop"
                 className={classes.btn}
               >
-                Skin care
+                Shop All
               </Button>
             </Grid>
             <Grid item md={7}></Grid>

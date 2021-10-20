@@ -31,11 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: "black",
-    marginBottom: theme.spacing(3),
-    fontWeight: 500,
-  },
-  body: {
-    color: "black",
     fontWeight: 300,
   },
   cardContainer: {
@@ -84,7 +79,7 @@ export default function HomeProductCard() {
     dots: false,
     infinite: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     initialSlide: 0,
     nextArrow: <NextArrow />,
@@ -93,12 +88,19 @@ export default function HomeProductCard() {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -113,10 +115,6 @@ export default function HomeProductCard() {
         <div className={classes.titleContainer}>
           <Typography variant="h3" component="h2" className={classes.title}>
             Our New Arrivals
-          </Typography>
-          <Typography variant="body1" className={classes.body}>
-            Our formulations have proven efficacy, contain organic ingredients
-            only and are 100% cruelty free.
           </Typography>
         </div>
         <div className={classes.cardContainer}>

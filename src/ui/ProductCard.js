@@ -14,22 +14,26 @@ import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 0,
+    border: "1px solid #eee",
   },
   media: {
     height: 0,
-    padding: "15rem 4rem 0 4rem",
+    padding: "18rem 8rem 0 8rem",
   },
   contentContainer: {
     textAlign: "center",
+    maxWidth: "16rem",
   },
   btnContainer: {
     display: "flex",
     justifyContent: "center",
+    padding: "1rem",
   },
   btn: {
     borderRadius: 0,
     backgroundColor: "black",
     fontWeight: 400,
+    textTransform: "none",
 
     "&:hover": {
       backgroundColor: theme.palette.grey[900],
@@ -44,32 +48,22 @@ export default function ProductCard({ name, price, img }) {
     <>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item>
-          <Card className={classes.root}>
+          <Card elevation={0} className={classes.root}>
             <CardActionArea>
-              <Grid container>
-                <Grid item xs={12}>
-                  <CardMedia
-                    className={classes.media}
-                    image={img}
-                    title="cosmetic"
-                  />
-                </Grid>
+              <CardMedia
+                className={classes.media}
+                image={img}
+                title="cosmetic"
+              />
 
-                <Grid item xs={12}>
-                  <CardContent className={classes.contentContainer}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      Price: ${price}
-                    </Typography>
-                  </CardContent>
-                </Grid>
-              </Grid>
+              <CardContent className={classes.contentContainer}>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {name}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  ${price}
+                </Typography>
+              </CardContent>
             </CardActionArea>
             <CardActions className={classes.btnContainer}>
               <Button
@@ -79,7 +73,7 @@ export default function ProductCard({ name, price, img }) {
                 disableElevation
                 className={classes.btn}
               >
-                View more
+                View More
               </Button>
             </CardActions>
           </Card>

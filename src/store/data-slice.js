@@ -48,10 +48,6 @@ const dataSlice = createSlice({
         id: "pump-grey",
       },
     ],
-
-    selectedRoom: [],
-
-    checkInInfo: [],
   },
   reducers: {},
 });

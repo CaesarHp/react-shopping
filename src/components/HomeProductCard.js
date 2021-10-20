@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     top: "50%",
     right: "-5%",
-    zIndex: 1600,
+    zIndex: 1000,
   },
   arrowPrev: {
     color: "black",
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     top: "50%",
     left: "-5%",
-    zIndex: 1600,
+    zIndex: 1000,
   },
 }));
 

@@ -13,7 +13,11 @@ import bodyLotion from "../img/body-lotion.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "8rem 10rem",
+    padding: "6rem 10rem",
+
+    [theme.breakpoints.down("md")]: {
+      padding: "6rem 3rem",
+    },
   },
   imgContainer: {
     height: "30rem",
@@ -47,14 +51,9 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     borderRadius: 0,
     padding: "0.8rem 2rem",
-    backgroundColor: "black",
     fontWeight: 400,
-    textTransform: "none",
-    color: "white",
-
-    "&:hover": {
-      backgroundColor: theme.palette.grey[900],
-    },
+    color: "black",
+    border: "1px solid black",
   },
 }));
 
@@ -79,7 +78,7 @@ function HomeCategory() {
                 Body Care
               </Typography>
               <Button
-                variant="contained"
+                variant="outlined"
                 size="large"
                 disableElevation
                 className={classes.btn}
@@ -96,7 +95,7 @@ function HomeCategory() {
                 Body Lotion
               </Typography>
               <Button
-                variant="contained"
+                variant="outlined"
                 size="large"
                 disableElevation
                 className={classes.btn}
@@ -113,7 +112,7 @@ function HomeCategory() {
                 Face Care
               </Typography>
               <Button
-                variant="contained"
+                variant="outlined"
                 size="large"
                 disableElevation
                 className={classes.btn}
@@ -130,7 +129,7 @@ function HomeCategory() {
                 Hand Care
               </Typography>
               <Button
-                variant="contained"
+                variant="outlined"
                 size="large"
                 disableElevation
                 className={classes.btn}

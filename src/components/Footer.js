@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     borderRadius: 0,
-    padding: "1rem 2rem",
+    padding: "0.8rem 2rem",
     fontWeight: 400,
     color: "#f5f5f5",
     border: "1px solid #f5f5f5",

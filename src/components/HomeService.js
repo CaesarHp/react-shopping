@@ -12,7 +12,7 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "black",
+    backgroundColor: "white",
     padding: "4rem 6rem",
     textAlign: "center",
   },
@@ -21,14 +21,19 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  topTitle: {
+    color: "black",
+    fontWeight: 300,
+    marginBottom: "4rem",
+  },
   title: {
-    color: theme.palette.grey[300],
+    color: "black",
     fontWeight: 300,
     marginBottom: "1rem",
   },
   body: {
     fontWeight: 300,
-    color: theme.palette.grey[300],
+    color: "black",
   },
 }));
 
@@ -47,7 +52,7 @@ function HomeService() {
               <LocalShippingRoundedIcon
                 style={{
                   fontSize: "3rem",
-                  color: "#e0e0e0",
+                  color: "black",
                   marginBottom: "1.5rem",
                 }}
               />
@@ -64,7 +69,7 @@ function HomeService() {
               <CardGiftcardIcon
                 style={{
                   fontSize: "3rem",
-                  color: "#e0e0e0",
+                  color: "black",
                   marginBottom: "1.5rem",
                 }}
               />
@@ -81,7 +86,7 @@ function HomeService() {
               <QuestionAnswerRoundedIcon
                 style={{
                   fontSize: "3rem",
-                  color: "#e0e0e0",
+                  color: "black",
                   marginBottom: "1.5rem",
                 }}
               />

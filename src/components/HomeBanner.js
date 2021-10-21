@@ -8,11 +8,12 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import womanFace from "../img/woman-face.jpg";
+import topBanner from "../img/top-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "95vh",
-    background: `url(${womanFace})`,
+    background: `url(${topBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",

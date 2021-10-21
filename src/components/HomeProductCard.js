@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "4rem 0",
+    padding: "8rem 0",
   },
   titleContainer: {
     textAlign: "center",
@@ -114,7 +114,7 @@ export default function HomeProductCard() {
       <div className={classes.root}>
         <div className={classes.titleContainer}>
           <Typography variant="h3" component="h2" className={classes.title}>
-            Our New Arrivals
+            New Arrivals
           </Typography>
         </div>
         <div className={classes.cardContainer}>

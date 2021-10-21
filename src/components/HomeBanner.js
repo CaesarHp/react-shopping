@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "black",
     fontWeight: 300,
-    letterSpacing: "1px",
     marginBottom: theme.spacing(2),
   },
   body: {
@@ -50,11 +49,11 @@ const useStyles = makeStyles((theme) => ({
   },
   btn: {
     borderRadius: 0,
-    padding: "1rem 2rem",
+    padding: "0.8rem 2rem",
     backgroundColor: "black",
     fontWeight: 400,
     textTransform: "none",
-    marginRight: "2rem",
+    color: "white",
 
     "&:hover": {
       backgroundColor: theme.palette.grey[900],
@@ -82,8 +81,6 @@ function HomeBanner() {
 
               <Button
                 variant="contained"
-                size="large"
-                color="primary"
                 disableElevation
                 component={Link}
                 to="/shop"

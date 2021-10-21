@@ -13,7 +13,8 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "black",
-    padding: "4rem 0",
+    padding: "4rem 6rem",
+    textAlign: "center",
   },
   serviceContainer: {
     display: "flex",
@@ -21,9 +22,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   title: {
-    color: "white",
+    color: theme.palette.grey[300],
     fontWeight: 300,
     marginBottom: "1rem",
+  },
+  body: {
+    fontWeight: 300,
+    color: theme.palette.grey[300],
   },
 }));
 
@@ -41,15 +46,15 @@ function HomeService() {
             <div className={classes.serviceContainer}>
               <LocalShippingRoundedIcon
                 style={{
-                  fontSize: "5rem",
-                  color: "white",
-                  marginBottom: "1rem",
+                  fontSize: "3rem",
+                  color: "#e0e0e0",
+                  marginBottom: "1.5rem",
                 }}
               />
-              <Typography variant="h4" className={classes.title}>
+              <Typography variant="h5" className={classes.title}>
                 Free Delivery
               </Typography>
-              <Typography variant="body1" className={classes.title}>
+              <Typography variant="body2" className={classes.body}>
                 Free delivery for all orders over $49.99.
               </Typography>
             </div>
@@ -58,15 +63,15 @@ function HomeService() {
             <div className={classes.serviceContainer}>
               <CardGiftcardIcon
                 style={{
-                  fontSize: "5rem",
-                  color: "white",
-                  marginBottom: "1rem",
+                  fontSize: "3rem",
+                  color: "#e0e0e0",
+                  marginBottom: "1.5rem",
                 }}
               />
-              <Typography variant="h4" className={classes.title}>
+              <Typography variant="h5" className={classes.title}>
                 Lovely Gift
               </Typography>
-              <Typography variant="body1" className={classes.title}>
+              <Typography variant="body2" className={classes.body}>
                 Free gifts and samples for our members.
               </Typography>
             </div>
@@ -75,15 +80,15 @@ function HomeService() {
             <div className={classes.serviceContainer}>
               <QuestionAnswerRoundedIcon
                 style={{
-                  fontSize: "5rem",
-                  color: "white",
-                  marginBottom: "1rem",
+                  fontSize: "3rem",
+                  color: "#e0e0e0",
+                  marginBottom: "1.5rem",
                 }}
               />
-              <Typography variant="h4" className={classes.title}>
+              <Typography variant="h5" className={classes.title}>
                 Customer Service
               </Typography>
-              <Typography variant="body1" className={classes.title}>
+              <Typography variant="body2" className={classes.body}>
                 Live chat and phone call are available all day
               </Typography>
             </div>

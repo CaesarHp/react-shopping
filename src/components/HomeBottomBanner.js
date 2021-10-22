@@ -11,14 +11,14 @@ import bottomBanner from "../img/bottom-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "60vh",
+    minHeight: "70vh",
     background: `url(${bottomBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
   container: {
-    height: "60vh",
+    height: "70vh",
     display: "flex",
     alignItems: "center",
     padding: "0 4rem",
@@ -36,13 +36,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    color: theme.palette.grey[200],
+    color: "black",
     fontWeight: 300,
     marginBottom: theme.spacing(2),
   },
   body: {
-    color: theme.palette.grey[200],
-    fontWeight: 300,
+    color: "black",
+    fontWeight: 400,
     marginBottom: theme.spacing(4),
   },
   btn: {
@@ -67,13 +67,14 @@ function HomeBottomBanner() {
       <div className={classes.root}>
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5}>
               <Typography variant="h3" className={classes.title}>
-                Discover new products
+                Discover Promotion
               </Typography>
 
               <Typography variant="body1" className={classes.body}>
-                Free gifts and samples with any order when you spend $49.99.
+                Free gifts and samples with any order when you spend $49.99. End
+                of season sale starts next week, subscrib us for more news.
               </Typography>
 
               <Button
@@ -86,7 +87,7 @@ function HomeBottomBanner() {
                 View More
               </Button>
             </Grid>
-            <Grid item md={6}></Grid>
+            <Grid item md={7}></Grid>
           </Grid>
         </div>
       </div>

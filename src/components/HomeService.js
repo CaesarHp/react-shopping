@@ -12,9 +12,17 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "white",
-    padding: "4rem 6rem",
+    backgroundColor: "#FFF7F3",
+    padding: "4rem 8rem",
     textAlign: "center",
+
+    [theme.breakpoints.down("md")]: {
+      padding: "4rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "3rem 2rem",
+    },
   },
   serviceContainer: {
     display: "flex",

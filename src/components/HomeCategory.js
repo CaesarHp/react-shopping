@@ -13,10 +13,10 @@ import bodyLotion from "../img/body-lotion.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "6rem 10rem",
+    padding: "6rem",
 
     [theme.breakpoints.down("md")]: {
-      padding: "6rem 3rem",
+      padding: "6rem 2rem",
     },
   },
   imgContainer: {
@@ -29,39 +29,57 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     objectFit: "cover",
   },
-  bottomBar: {
+  leftBar: {
     position: "absolute",
     left: 40,
-    bottom: 30,
+    top: 50,
 
-    width: "80%",
+    height: "80%",
+    width: "70%",
     display: "flex",
+    flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: "center",
 
-    [theme.breakpoints.down("md")]: {
-      display: "block",
+    [theme.breakpoints.down("xs")]: {
+      left: 30,
     },
   },
   title: {
-    [theme.breakpoints.down("md")]: {
-      marginBottom: "1rem",
-    },
+    fontWeight: 400,
+    color: "black",
+    marginBottom: "0.5rem",
+
+    // [theme.breakpoints.down("md")]: {
+    //   marginBottom: "1rem",
+    // },
+  },
+  body: {
+    fontWeight: 400,
+    color: "black",
   },
   btn: {
     borderRadius: 0,
     padding: "0.8rem 2rem",
+    backgroundColor: "black",
     fontWeight: 400,
-    color: "black",
-    border: "1px solid black",
+    textTransform: "none",
+    color: "white",
+
+    "&:hover": {
+      backgroundColor: theme.palette.grey[900],
+    },
   },
 }));
 
-const imgInfo = [
-  { title: "Hand Care", img: handCare },
-  { title: "Body Care", img: bodyCare },
-  { title: "Face Care", img: faceCare },
-  { title: "Body Lotion", img: bodyLotion },
+const bannerInfo = [
+  { title: "Body Wash", body: "Body Soap & Body Scrubs", img: bodyCare },
+  {
+    title: "Moisturizers",
+    body: "Body Lotions & Body Oils",
+    img: bodyLotion,
+  },
+  { title: "Skin Care", body: "Moisturizers & Essences", img: faceCare },
+  { title: "Hand Care", body: "Hand Creams & Hand Masks", img: handCare },
 ];
 
 function HomeCategory() {
@@ -71,73 +89,38 @@ function HomeCategory() {
     <>
       <div className={classes.root}>
         <Grid container spacing={2}>
-          <Grid item sm={12} md={6} className={classes.imgContainer}>
-            <img alt="body-care" src={bodyCare} className={classes.img} />
-            <div className={classes.bottomBar}>
-              <Typography variant="h5" className={classes.title}>
-                Body Care
-              </Typography>
-              <Button
-                variant="outlined"
-                size="large"
-                disableElevation
-                className={classes.btn}
-              >
-                Shop All
-              </Button>
-            </div>
-          </Grid>
-
-          <Grid item sm={12} md={6} className={classes.imgContainer}>
-            <img alt="clean" src={bodyLotion} className={classes.img} />
-            <div className={classes.bottomBar}>
-              <Typography variant="h5" className={classes.title}>
-                Body Lotion
-              </Typography>
-              <Button
-                variant="outlined"
-                size="large"
-                disableElevation
-                className={classes.btn}
-              >
-                Shop All
-              </Button>
-            </div>
-          </Grid>
-
-          <Grid item sm={12} md={6} className={classes.imgContainer}>
-            <img alt="face-care" src={faceCare} className={classes.img} />
-            <div className={classes.bottomBar}>
-              <Typography variant="h5" className={classes.title}>
-                Face Care
-              </Typography>
-              <Button
-                variant="outlined"
-                size="large"
-                disableElevation
-                className={classes.btn}
-              >
-                Shop All
-              </Button>
-            </div>
-          </Grid>
-
-          <Grid item sm={12} md={6} className={classes.imgContainer}>
-            <img alt="hand-care" src={handCare} className={classes.img} />
-            <div className={classes.bottomBar}>
-              <Typography variant="h5" className={classes.title}>
-                Hand Care
-              </Typography>
-              <Button
-                variant="outlined"
-                size="large"
-                disableElevation
-                className={classes.btn}
-              >
-                Shop All
-              </Button>
-            </div>
-          </Grid>
+          {bannerInfo.map((item, index) => (
+            <Grid
+              key={index}
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              className={classes.imgContainer}
+            >
+              <img alt={item.title} src={item.img} className={classes.img} />
+              <div className={classes.leftBar}>
+                <div>
+                  <Typography variant="h4" className={classes.title}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body1" className={classes.body}>
+                    {item.body}
+                  </Typography>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    size="large"
+                    disableElevation
+                    className={classes.btn}
+                  >
+                    Shop All
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+          ))}
         </Grid>
       </div>
     </>

@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Theme from "./ui/Theme";
 import Layout from "./ui/Layout";
 import Home from "./pages/Home";
+import Shop from "./pages/Shop";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -26,7 +27,7 @@ function App() {
                 <Home />
               </Route>
               <Route path="/shop" exact>
-                Shop
+                <Shop />
               </Route>
               <Route path="/cart" exact>
                 Cart

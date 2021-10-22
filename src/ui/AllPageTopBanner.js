@@ -11,16 +11,16 @@ import topBanner from "../img/top-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "95vh",
+    minHeight: "60vh",
     background: `url(${topBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
   container: {
-    height: "95vh",
+    height: "60vh",
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-end",
     padding: "0 4rem",
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contentContainer: {
-    marginTop: "8rem",
+    marginBottom: "5rem",
 
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
@@ -45,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   body: {
     color: "black",
     fontWeight: 400,
-    marginBottom: theme.spacing(4),
   },
   btn: {
     borderRadius: 0,
@@ -61,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function HomeBanner() {
+function AllPageTopBanner() {
   const classes = useStyles();
 
   return (
@@ -75,19 +74,8 @@ function HomeBanner() {
               </Typography>
 
               <Typography variant="body1" className={classes.body}>
-                Our formulations have proven efficacy, contain organic
-                ingredients only and are 100% cruelty free.
+                Our formulations have proven efficacy
               </Typography>
-
-              <Button
-                variant="contained"
-                disableElevation
-                component={Link}
-                to="/shop"
-                className={classes.btn}
-              >
-                Shop All
-              </Button>
             </Grid>
             <Grid item md={7}></Grid>
           </Grid>
@@ -97,4 +85,4 @@ function HomeBanner() {
   );
 }
 
-export default HomeBanner;
+export default AllPageTopBanner;

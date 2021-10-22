@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import { styled } from "@mui/material/styles";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "15rem",
+  },
+}));
 
 const SORT_BY = [
   {
@@ -23,34 +27,34 @@ const SORT_BY = [
   {
     value: "Price High to Low",
   },
-  {
-    value: "Product Name A to Z",
-  },
-  {
-    value: "Product Name Z to A",
-  },
 ];
 
-const CssTextField = styled(TextField)({
-  "& label.Mui-focused": {
-    color: "#616161",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "#616161",
-  },
-  "& .MuiOutlinedInput-root": {
-    "& fieldset": {
-      borderColor: "#bdbdbd",
-      borderRadius: 0,
+const CssTextField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "#616161",
+      backgroundColor: "none",
     },
-    "&:hover fieldset": {
-      borderColor: "#757575",
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#616161",
     },
-    "&.Mui-focused fieldset": {
-      border: "1px solid #616161",
+    "& .MuiSelect-select:focus": {
+      backgroundColor: "white",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "black",
+        borderRadius: 0,
+      },
+      "&:hover fieldset": {
+        borderColor: "#757575",
+      },
+      "&.Mui-focused fieldset": {
+        border: "1px solid #616161",
+      },
     },
   },
-});
+})(TextField);
 
 function Sort() {
   const classes = useStyles();
@@ -71,8 +75,10 @@ function Sort() {
           id="sort"
           select
           label="Sort By"
+          variant="outlined"
           value={sort}
           onChange={sortChangeHandler}
+          className={classes.root}
         >
           {SORT_BY.map((option, index) => (
             <MenuItem key={index} value={option.value}>

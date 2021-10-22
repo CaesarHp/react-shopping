@@ -45,16 +45,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    fontWeight: 400,
+    fontWeight: 500,
     color: "black",
     marginBottom: "0.5rem",
-
-    // [theme.breakpoints.down("md")]: {
-    //   marginBottom: "1rem",
-    // },
   },
   body: {
-    fontWeight: 400,
+    fontWeight: 300,
     color: "black",
   },
   btn: {
@@ -101,7 +97,7 @@ function HomeCategory() {
               <img alt={item.title} src={item.img} className={classes.img} />
               <div className={classes.leftBar}>
                 <div>
-                  <Typography variant="h4" className={classes.title}>
+                  <Typography variant="h5" className={classes.title}>
                     {item.title}
                   </Typography>
                   <Typography variant="body1" className={classes.body}>

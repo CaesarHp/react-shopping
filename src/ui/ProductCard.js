@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     fontWeight: 400,
     textTransform: "none",
-    fontSize: "2rem",
 
     "&:hover": {
       backgroundColor: theme.palette.grey[900],

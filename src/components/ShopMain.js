@@ -8,17 +8,28 @@ import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Sort from "../ui/Sort";
+import Filter from "../ui/Filter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "6rem 8rem",
+    padding: "6rem 4rem",
+  },
+  path: {
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+    },
   },
   btnContainer: {
     display: "flex",
     justifyContent: "flex-end",
+
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+    },
   },
   btn: {
     borderRadius: 0,
+    fontSize: "1rem",
     padding: "0.8rem 2rem",
     fontWeight: 400,
     textTransform: "none",
@@ -37,19 +48,13 @@ function ShopMain() {
         <Grid container>
           <Grid item xs={12}>
             <Grid container alignItems="center">
-              <Grid item xs={6}>
+              <Grid item sm={12} md={6} className={classes.path}>
                 <Typography variant="body1">Shop/Category</Typography>
               </Grid>
-              <Grid item xs={6}>
+              <Grid item sm={12} md={6}>
                 <div className={classes.btnContainer}>
                   <Sort />
-                  <Button
-                    variant="outlined"
-                    disableElevation
-                    className={classes.btn}
-                  >
-                    Filter
-                  </Button>
+                  <Filter />
                 </div>
               </Grid>
             </Grid>

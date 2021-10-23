@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 export default function HomeProductCard() {
   const classes = useStyles();
 
-  const cardInfo = useSelector((state) => state.data.roomsInfo);
+  const cardInfo = useSelector((state) => state.data.productsInfo);
 
   const NextArrow = ({ onClick }) => {
     return (

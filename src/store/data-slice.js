@@ -10,7 +10,7 @@ import pumpGrey from "../img/cosmetic-mockup-06.jpg";
 const dataSlice = createSlice({
   name: "data",
   initialState: {
-    roomsInfo: [
+    productsInfo: [
       {
         name: "Spring Spray",
         price: 89.99,

@@ -62,6 +62,10 @@ const useStyles = makeStyles((theme) => {
     },
     headerBtn: {
       margin: "0 0.5rem",
+
+      [theme.breakpoints.down("sm")]: {
+        margin: 0,
+      },
     },
     badge: {
       "& .MuiBadge-badge": {

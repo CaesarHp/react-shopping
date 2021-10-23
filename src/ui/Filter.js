@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     marginLeft: "2rem",
     borderColor: "black",
+
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+      marginTop: "2rem",
+    },
   },
   drawer: {
     width: drawerWidth,

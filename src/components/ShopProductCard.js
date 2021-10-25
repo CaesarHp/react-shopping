@@ -23,7 +23,7 @@ function ShopProductCard() {
       <div className={classes.root}>
         <Grid container rowSpacing={6}>
           {cardInfo.map((item, index) => (
-            <Grid item key={index} xs={12} sm={12} md={4} lg={3}>
+            <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
               <ProductCard
                 key={index}
                 name={item.name}

@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
+
+    [theme.breakpoints.down("md")]: {
+      minHeight: "30vh",
+    },
   },
   container: {
     height: "60vh",
@@ -21,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-end",
     padding: "0 4rem",
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
+      height: "30vh",
       textAlign: "center",
       justifyContent: "center",
       padding: 0,
@@ -30,10 +35,15 @@ const useStyles = makeStyles((theme) => ({
   contentContainer: {
     marginBottom: "5rem",
 
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       textAlign: "center",
       width: "90%",
       padding: 0,
+      marginBottom: "4rem",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "2rem",
     },
   },
   title: {
@@ -44,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
   body: {
     color: "black",
     fontWeight: 400,
+
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   btn: {
     borderRadius: 0,
@@ -59,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AllPageTopBanner() {
+function AllPageTopBanner({ title, body }) {
   const classes = useStyles();
 
   return (
@@ -67,16 +81,16 @@ function AllPageTopBanner() {
       <div className={classes.root}>
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} lg={5}>
               <Typography variant="h3" className={classes.title}>
-                Organic Beauty
+                {title}
               </Typography>
 
               <Typography variant="body1" className={classes.body}>
-                Our formulations have proven efficacy
+                {body}
               </Typography>
             </Grid>
-            <Grid item md={7}></Grid>
+            <Grid item lg={7}></Grid>
           </Grid>
         </div>
       </div>

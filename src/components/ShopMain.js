@@ -10,6 +10,14 @@ import ShopProductCard from "./ShopProductCard";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "6rem",
+
+    [theme.breakpoints.down("md")]: {
+      padding: "4rem 6rem",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      padding: "2rem 6rem",
+    },
   },
 }));
 

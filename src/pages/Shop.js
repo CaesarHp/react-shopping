@@ -6,7 +6,10 @@ import ShopMain from "../components/ShopMain";
 function Shop() {
   return (
     <>
-      <AllPageTopBanner />
+      <AllPageTopBanner
+        title={"Organic Beauty"}
+        body={"Our formulations have proven efficacy"}
+      />
       <ShopMain />
     </>
   );

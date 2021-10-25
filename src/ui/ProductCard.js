@@ -50,11 +50,7 @@ export default function ProductCard({ name, price, img }) {
         <Grid item>
           <Card elevation={0} className={classes.root}>
             <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image={img}
-                title="cosmetic"
-              />
+              <CardMedia className={classes.media} image={img} title={name} />
 
               <CardContent className={classes.contentContainer}>
                 <Typography gutterBottom variant="h5" component="h2">

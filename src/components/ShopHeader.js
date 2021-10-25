@@ -41,12 +41,12 @@ function ShopHeader() {
     <>
       <div className={classes.root}>
         <Grid container alignItems="center">
-          <Grid item xs={12} sm={12} md={12} lg={6}>
+          <Grid item xs={12} lg={6}>
             <Typography variant="body1" className={classes.path}>
-              Shop/Category
+              Shop / Category
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={6}>
+          <Grid item xs={12} lg={6}>
             <div className={classes.btnContainer}>
               <Sort />
               <Filter />

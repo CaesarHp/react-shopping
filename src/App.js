@@ -29,6 +29,9 @@ function App() {
               <Route path="/shop" exact>
                 <Shop />
               </Route>
+              <Route path="/shop/:productId" exact>
+                <Shop />
+              </Route>
               <Route path="/cart" exact>
                 Cart
               </Route>

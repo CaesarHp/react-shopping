@@ -6,8 +6,8 @@ import { ALL_PRODUCTS_DATA } from "./all-products-data";
 const dataSlice = createSlice({
   name: "data",
   initialState: {
-    productsInfo: [...NEW_ARRIVALS_DATA],
-    allProducts: [...ALL_PRODUCTS_DATA],
+    newArrivalsInfo: [...NEW_ARRIVALS_DATA],
+    allProductsInfo: [...ALL_PRODUCTS_DATA],
   },
   reducers: {},
 });

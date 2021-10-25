@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 function ShopProductCard() {
   const classes = useStyles();
 
-  const cardInfo = useSelector((state) => state.data.productsInfo);
+  const cardInfo = useSelector((state) => state.data.allProductsInfo);
 
   return (
     <>

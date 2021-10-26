@@ -9,7 +9,7 @@ import ProductDetailContainer from "./ProductDetailContainer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "6rem",
+    padding: "10rem 6rem",
   },
   path: {
     [theme.breakpoints.down("md")]: {
@@ -24,16 +24,18 @@ function ProductDetailMain({ name, price, img }) {
 
   return (
     <>
-      <Grid container>
-        <Grid item xs={12}>
-          <Typography variant="body1" className={classes.path}>
-            Shop / Category
-          </Typography>
+      <div className={classes.root}>
+        <Grid container>
+          <Grid item xs={12}>
+            <Typography variant="body1" className={classes.path}>
+              Shop / Category
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <ProductDetailContainer name={name} price={price} img={img} />
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <ProductDetailContainer name={name} price={price} img={img} />
-        </Grid>
-      </Grid>
+      </div>
     </>
   );
 }

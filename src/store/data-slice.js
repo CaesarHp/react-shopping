@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { NEW_ARRIVALS_DATA } from "./new-arrivals-data";
 import { ALL_PRODUCTS_DATA } from "./all-products-data";
 
 const dataSlice = createSlice({
   name: "data",
   initialState: {
-    newArrivalsInfo: [...NEW_ARRIVALS_DATA],
+    newArrivalsInfo: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 6),
     allProductsInfo: [...ALL_PRODUCTS_DATA],
   },
   reducers: {},

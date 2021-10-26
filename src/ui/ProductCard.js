@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ProductCard({ name, price, img }) {
+export default function ProductCard({ name, price, img, id }) {
   const classes = useStyles();
 
   return (
@@ -67,6 +67,8 @@ export default function ProductCard({ name, price, img }) {
                 size="medium"
                 color="primary"
                 disableElevation
+                component={Link}
+                to={`/shop/${id}`}
                 className={classes.btn}
               >
                 View More

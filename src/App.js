@@ -8,6 +8,7 @@ import Theme from "./ui/Theme";
 import Layout from "./ui/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -30,7 +31,7 @@ function App() {
                 <Shop />
               </Route>
               <Route path="/shop/:productId" exact>
-                <Shop />
+                <ProductDetail />
               </Route>
               <Route path="/cart" exact>
                 Cart

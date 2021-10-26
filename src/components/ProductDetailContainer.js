@@ -9,15 +9,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: "6rem",
   },
-  imgContainer: {
-    height: "30rem",
-    overflow: "hidden",
-    position: "relative",
-  },
+  imgContainer: {},
   img: {
-    height: "100%",
-    width: "100%",
-    objectFit: "cover",
+    //height: "80%",
+    width: "80%",
   },
 }));
 

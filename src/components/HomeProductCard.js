@@ -118,6 +118,7 @@ export default function HomeProductCard() {
                 name={item.name}
                 price={item.price}
                 img={item.img}
+                id={item.id}
               />
             ))}
           </Slider>

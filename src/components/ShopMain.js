@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Grid } from "@mui/material";
+import { Pagination } from "@material-ui/lab";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -19,10 +22,29 @@ const useStyles = makeStyles((theme) => ({
       padding: "2rem 6rem",
     },
   },
+  pagination: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 function ShopMain() {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const pageChangeHandler = (event, value) => {
+    dispatch(dataActions.changePage(value));
+
+    scrollToTop();
+  };
 
   return (
     <>
@@ -33,6 +55,11 @@ function ShopMain() {
           </Grid>
           <Grid item xs={12}>
             <ShopProductCard />
+          </Grid>
+          <Grid item xs={12}>
+            <div className={classes.pagination}>
+              <Pagination count={2} onChange={pageChangeHandler} />
+            </div>
           </Grid>
         </Grid>
       </div>

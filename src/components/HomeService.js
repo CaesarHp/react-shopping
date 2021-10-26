@@ -12,7 +12,7 @@ import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "#FFF7F3",
+    backgroundColor: "#faf0e6",
     padding: "4rem 8rem",
     textAlign: "center",
 
@@ -29,14 +29,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
-  topTitle: {
-    color: "black",
-    fontWeight: 300,
-    marginBottom: "4rem",
-  },
   title: {
     color: "black",
-    fontWeight: 300,
+    fontWeight: 500,
     marginBottom: "1rem",
   },
   body: {

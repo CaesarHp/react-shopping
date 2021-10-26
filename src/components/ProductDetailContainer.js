@@ -30,7 +30,11 @@ function ProductDetailContainer({ name, price, img }) {
         <Grid item xs={12} lg={6} className={classes.imgContainer}>
           <img alt={name} src={img} className={classes.img} />
         </Grid>
-        <Grid item xs={12} lg={6}></Grid>
+        <Grid item xs={12} lg={6}>
+          <Typography variant="body2">
+            * All images and infos from Sephora.
+          </Typography>
+        </Grid>
       </Grid>
     </>
   );

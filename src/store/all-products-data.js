@@ -90,7 +90,8 @@ export const ALL_PRODUCTS_DATA = [
     category: "Eye Makeup",
     img: img21,
     brand: "Charlotte Tilbury",
-    describe: "",
+    describe:
+      "A six-shade eyeshadow palette including bronze, pink, terracotta, and brown shades. The palette features six of Charlotte’s favorite shades curated for a signature, sunset-inspired eye-glow look. You can create glowing eye looks from bronzed copper, peachy pink, rosy terracotta, and chocolate brown eyeshadows to define, smoke, and illuminate the eye.",
     id: "eyeshadow",
   },
   {

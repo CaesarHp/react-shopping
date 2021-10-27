@@ -29,6 +29,7 @@ function ShopProductCard() {
                 name={item.name}
                 price={item.price}
                 img={item.img}
+                id={item.id}
               />
             </Grid>
           ))}

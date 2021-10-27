@@ -10,13 +10,16 @@ const dataSlice = createSlice({
     pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index > 12),
     currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
+    currentPageNumber: 1,
   },
   reducers: {
     changePage(state, action) {
       if (action.payload === 1) {
         state.currentPage = state.pageOne;
+        state.currentPageNumber = 1;
       } else {
         state.currentPage = state.pageTwo;
+        state.currentPageNumber = 2;
       }
     },
   },

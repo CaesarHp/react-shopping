@@ -12,14 +12,15 @@ const useStyles = makeStyles((theme) => ({
     padding: "10rem 6rem",
   },
   path: {
+    marginBottom: "3rem",
+
     [theme.breakpoints.down("md")]: {
       textAlign: "center",
-      marginBottom: "2rem",
     },
   },
 }));
 
-function ProductDetailMain({ name, price, img }) {
+function ProductDetailMain({ name, price, img, category, describe, brand }) {
   const classes = useStyles();
 
   return (
@@ -28,11 +29,18 @@ function ProductDetailMain({ name, price, img }) {
         <Grid container>
           <Grid item xs={12}>
             <Typography variant="body1" className={classes.path}>
-              Shop / Category
+              Shop / Category / {category}
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <ProductDetailContainer name={name} price={price} img={img} />
+            <ProductDetailContainer
+              name={name}
+              price={price}
+              img={img}
+              describe={describe}
+              brand={brand}
+              category={category}
+            />
           </Grid>
         </Grid>
       </div>

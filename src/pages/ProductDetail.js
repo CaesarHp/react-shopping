@@ -25,6 +25,9 @@ function ProductDetail() {
         name={productInfo.name}
         price={productInfo.price}
         img={productInfo.img}
+        category={productInfo.category}
+        describe={productInfo.describe}
+        brand={productInfo.brand}
       />
     </>
   );

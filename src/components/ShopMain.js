@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
 
@@ -33,6 +34,8 @@ function ShopMain() {
 
   const dispatch = useDispatch();
 
+  const pageNumber = useSelector((state) => state.data.currentPageNumber);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -58,7 +61,11 @@ function ShopMain() {
           </Grid>
           <Grid item xs={12}>
             <div className={classes.pagination}>
-              <Pagination count={2} onChange={pageChangeHandler} />
+              <Pagination
+                count={2}
+                page={pageNumber}
+                onChange={pageChangeHandler}
+              />
             </div>
           </Grid>
         </Grid>

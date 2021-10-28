@@ -11,6 +11,7 @@ const dataSlice = createSlice({
     pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index > 12),
     currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     currentPageNumber: 1,
+    cart: [],
   },
   reducers: {
     changePage(state, action) {
@@ -21,6 +22,10 @@ const dataSlice = createSlice({
         state.currentPage = state.pageTwo;
         state.currentPageNumber = 2;
       }
+    },
+
+    addItemToCart(state, action) {
+      state.cart.push(action.payload);
     },
   },
 });

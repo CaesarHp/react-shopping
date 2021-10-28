@@ -23,9 +23,10 @@ import { useScrollTrigger } from "@material-ui/core";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
+
+import CartDrawer from "../ui/CartDrawer";
 
 const drawerWidth = 240;
 
@@ -209,11 +210,7 @@ function Header(props) {
       )}
 
       <div className={classes.headerBtn}>
-        <IconButton>
-          <Badge badgeContent={1} className={classes.badge}>
-            <ShoppingCartIcon style={{ color: "black" }} />
-          </Badge>
-        </IconButton>
+        <CartDrawer />
       </div>
 
       {matches ? (

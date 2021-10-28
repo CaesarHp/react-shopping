@@ -28,6 +28,7 @@ function ProductDetail() {
         category={productInfo.category}
         describe={productInfo.describe}
         brand={productInfo.brand}
+        id={productInfo.id}
       />
     </>
   );

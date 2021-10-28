@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Typography } from "@material-ui/core";
 import { Button } from "@material-ui/core";
@@ -56,8 +58,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductDetailContent({ name, price, describe, brand, category }) {
+function ProductDetailContent({ name, price, describe, brand, category, id }) {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const [itemNumber, setItemNumber] = useState(1);
 
@@ -70,6 +81,19 @@ function ProductDetailContent({ name, price, describe, brand, category }) {
     } else {
       setItemNumber(itemNumber - 1);
     }
+  };
+
+  const addToCartHandler = () => {
+    dispatch(
+      dataActions.addItemToCart({
+        name: name,
+        price: price,
+        id: id,
+        number: itemNumber,
+      })
+    );
+
+    scrollToTop();
   };
 
   return (
@@ -115,6 +139,7 @@ function ProductDetailContent({ name, price, describe, brand, category }) {
           <Button
             variant="contained"
             disableElevation
+            onClick={addToCartHandler}
             className={classes.addToCartBtn}
           >
             Add To Cart

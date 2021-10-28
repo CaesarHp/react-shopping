@@ -6,6 +6,7 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ProductDetailContainer from "./ProductDetailContainer";
+import HomeProductCard from "./HomeProductCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductDetailMain({ name, price, img, category, describe, brand }) {
+function ProductDetailMain({
+  name,
+  price,
+  img,
+  category,
+  describe,
+  brand,
+  id,
+}) {
   const classes = useStyles();
 
   return (
@@ -40,7 +49,11 @@ function ProductDetailMain({ name, price, img, category, describe, brand }) {
               describe={describe}
               brand={brand}
               category={category}
+              id={id}
             />
+          </Grid>
+          <Grid item xs={12}>
+            <HomeProductCard />
           </Grid>
         </Grid>
       </div>

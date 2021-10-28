@@ -11,7 +11,9 @@ const dataSlice = createSlice({
     pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index > 12),
     currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     currentPageNumber: 1,
-    cart: [],
+    cartItem: [],
+    cartTotalQuantity: 0,
+    cartTotalPrice: 0,
   },
   reducers: {
     changePage(state, action) {
@@ -25,8 +27,30 @@ const dataSlice = createSlice({
     },
 
     addItemToCart(state, action) {
-      state.cart.push(action.payload);
+      const newItem = action.payload;
+      const exsitingItem = state.cartItem.find(
+        (item) => item.id === newItem.id
+      );
+      if (!exsitingItem) {
+        state.cartItem.push(newItem);
+        state.cartTotalQuantity++;
+        state.cartTotalPrice = state.cartTotalPrice + newItem.price;
+      } else {
+        exsitingItem.number = exsitingItem.number + newItem.number;
+        exsitingItem.price = exsitingItem.price + newItem.price;
+        state.cartTotalPrice = state.cartTotalPrice + exsitingItem.price;
+      }
     },
+
+    addExsitingItem(state, action) {
+      const id = action.payload;
+      const exsitingItem = state.cartItem.find((item) => item.id === id);
+      exsitingItem.number++;
+      exsitingItem.price = exsitingItem.price + exsitingItem.retail;
+      state.cartTotalPrice = state.cartTotalPrice + exsitingItem.retail;
+    },
+
+    removeItemFromCart(state, action) {},
   },
 });
 

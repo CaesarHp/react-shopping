@@ -58,7 +58,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductDetailContent({ name, price, describe, brand, category, id }) {
+function ProductDetailContent({
+  name,
+  img,
+  price,
+  describe,
+  brand,
+  category,
+  id,
+}) {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -87,7 +95,9 @@ function ProductDetailContent({ name, price, describe, brand, category, id }) {
     dispatch(
       dataActions.addItemToCart({
         name: name,
+        img: img,
         price: price,
+        retail: price,
         id: id,
         number: itemNumber,
       })

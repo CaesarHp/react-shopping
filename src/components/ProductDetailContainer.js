@@ -18,6 +18,7 @@ function ProductDetailContainer({
   describe,
   brand,
   category,
+  id,
 }) {
   const classes = useStyles();
 
@@ -30,10 +31,12 @@ function ProductDetailContainer({
         <Grid item xs={12} lg={6}>
           <ProductDetailContent
             name={name}
+            img={img}
             price={price}
             describe={describe}
             brand={brand}
             category={category}
+            id={id}
           />
         </Grid>
       </Grid>

@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
@@ -8,8 +9,6 @@ import { IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
-import exampleImg from "../img/cosmetic-mockup-01.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,37 +41,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductCardHorizontal() {
+function ProductCardHorizontal({ name, img, price, number, id }) {
   const classes = useStyles();
 
-  const [itemNumber, setItemNumber] = useState(1);
+  const dispatch = useDispatch();
 
   const addItemHandler = () => {
-    setItemNumber(itemNumber + 1);
+    dispatch(dataActions.addExsitingItem(id));
   };
-  const removeItemHandler = () => {
-    if (itemNumber <= 1) {
-      setItemNumber(1);
-    } else {
-      setItemNumber(itemNumber - 1);
-    }
-  };
+  const removeItemHandler = () => {};
 
   return (
     <>
       <div className={classes.root}>
         <Grid container columnSpacing={2}>
           <Grid item xs={4}>
-            <img alt="Product" src={exampleImg} className={classes.img} />
+            <img alt={name} src={img} className={classes.img} />
           </Grid>
           <Grid item xs={8}>
             <div className={classes.contentContainer}>
               <div>
                 <Typography variant="h5" className={classes.title}>
-                  Lotion
+                  {name}
                 </Typography>
                 <Typography variant="body1" className={classes.body}>
-                  $89.99
+                  ${price.toFixed(2)}
                 </Typography>
               </div>
               <div className={classes.itemNumberBtn}>
@@ -82,7 +75,7 @@ function ProductCardHorizontal() {
                   </IconButton>
                 </div>
                 <Typography variant="body1" className={classes.itemNumber}>
-                  {itemNumber}
+                  {number}
                 </Typography>
                 <div>
                   <IconButton size="small" onClick={addItemHandler}>

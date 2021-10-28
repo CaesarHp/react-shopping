@@ -84,7 +84,9 @@ const useStyles = makeStyles((theme) => ({
 function CartDrawer() {
   const classes = useStyles();
 
-  const cartItem = useSelector((state) => state.data.cart);
+  const cartItemInfo = useSelector((state) => state.data.cartItem);
+  const totalQuantity = useSelector((state) => state.data.cartTotalQuantity);
+  const totalPrice = useSelector((state) => state.data.cartTotalPrice);
 
   const [drawerState, setDrawerState] = useState(false);
 
@@ -113,17 +115,21 @@ function CartDrawer() {
         </div>
         <Divider className={classes.divider} light />
 
-        {cartItem.length === 0 ? (
+        {cartItemInfo.length === 0 ? (
           <Typography variant="body1" className={classes.noItem}>
             No item in cart
           </Typography>
         ) : (
-          <ProductCardHorizontal
-            name={cartItem.name}
-            price={cartItem.price}
-            id={cartItem.id}
-            number={cartItem.number}
-          />
+          cartItemInfo.map((item, index) => (
+            <ProductCardHorizontal
+              key={index}
+              name={item.name}
+              img={item.img}
+              price={item.price}
+              id={item.id}
+              number={item.number}
+            />
+          ))
         )}
 
         <Divider className={classes.divider} light />
@@ -132,7 +138,7 @@ function CartDrawer() {
             Subtotal:
           </Typography>
           <Typography variant="h6" className={classes.subtotal}>
-            $0
+            ${totalPrice.toFixed(2)}
           </Typography>
         </div>
         <div className={classes.btnContainer}>
@@ -150,7 +156,7 @@ function CartDrawer() {
   return (
     <>
       <IconButton onClick={toggleDrawerHandler(true)}>
-        <Badge badgeContent={1} className={classes.badge}>
+        <Badge badgeContent={totalQuantity} className={classes.badge}>
           <ShoppingCartIcon style={{ color: "black" }} />
         </Badge>
       </IconButton>

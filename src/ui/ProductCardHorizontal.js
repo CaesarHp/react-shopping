@@ -9,6 +9,7 @@ import { IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ProductCardHorizontal({ name, img, price, number, id }) {
+function ProductCardHorizontal({ name, img, price, retail, number, id }) {
   const classes = useStyles();
 
   const dispatch = useDispatch();
@@ -49,7 +50,12 @@ function ProductCardHorizontal({ name, img, price, number, id }) {
   const addItemHandler = () => {
     dispatch(dataActions.addExsitingItem(id));
   };
-  const removeItemHandler = () => {};
+  const removeItemHandler = () => {
+    dispatch(dataActions.removeItemFromCart(id));
+  };
+  const clearItemHandler = () => {
+    dispatch(dataActions.clearItemFromCart(id));
+  };
 
   return (
     <>
@@ -58,14 +64,14 @@ function ProductCardHorizontal({ name, img, price, number, id }) {
           <Grid item xs={4}>
             <img alt={name} src={img} className={classes.img} />
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={7}>
             <div className={classes.contentContainer}>
               <div>
                 <Typography variant="h5" className={classes.title}>
                   {name}
                 </Typography>
                 <Typography variant="body1" className={classes.body}>
-                  ${price.toFixed(2)}
+                  ${retail}
                 </Typography>
               </div>
               <div className={classes.itemNumberBtn}>
@@ -84,6 +90,15 @@ function ProductCardHorizontal({ name, img, price, number, id }) {
                 </div>
               </div>
             </div>
+          </Grid>
+          <Grid item xs={1}>
+            <IconButton
+              size="small"
+              style={{ marginLeft: "-1rem" }}
+              onClick={clearItemHandler}
+            >
+              <ClearIcon style={{ color: "grey" }} />
+            </IconButton>
           </Grid>
         </Grid>
       </div>

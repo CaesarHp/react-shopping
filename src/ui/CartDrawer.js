@@ -126,6 +126,7 @@ function CartDrawer() {
               name={item.name}
               img={item.img}
               price={item.price}
+              retail={item.retail}
               id={item.id}
               number={item.number}
             />

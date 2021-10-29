@@ -8,6 +8,7 @@ import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import CartProductCard from "../ui/CartProductCard";
+import CartTotalCard from "../ui/CartTotalCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,7 +41,7 @@ function CartMain() {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Grid container>
+            <Grid container columnSpacing={4}>
               <Grid item xs={8}>
                 {cartItemInfo.length === 0 ? (
                   <Typography variant="body1" className={classes.noItem}>
@@ -48,9 +49,9 @@ function CartMain() {
                   </Typography>
                 ) : (
                   cartItemInfo.map((item, index) => (
-                    <div>
+                    <div key={index}>
                       <CartProductCard
-                        key={index}
+                        key={item.id}
                         name={item.name}
                         img={item.img}
                         price={item.price}
@@ -58,13 +59,17 @@ function CartMain() {
                         id={item.id}
                         number={item.number}
                       />
-                      <Divider className={classes.divider} light />
+                      <Divider
+                        key={index + 1}
+                        className={classes.divider}
+                        light
+                      />
                     </div>
                   ))
                 )}
               </Grid>
               <Grid item xs={4}>
-                Total
+                <CartTotalCard totalPrice={totalPrice} />
               </Grid>
             </Grid>
           </Grid>

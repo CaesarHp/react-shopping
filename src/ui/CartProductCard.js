@@ -5,7 +5,6 @@ import { dataActions } from "../store/data-slice";
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
-import { Divider } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AddIcon from "@mui/icons-material/Add";
@@ -108,7 +107,7 @@ function CartProductCard({ name, img, price, retail, number, id }) {
           <Grid item xs={2}>
             <div className={classes.center}>
               <Typography variant="body1" className={classes.body}>
-                ${price}
+                ${price.toFixed(2)}
               </Typography>
             </div>
           </Grid>

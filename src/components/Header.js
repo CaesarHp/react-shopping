@@ -125,6 +125,8 @@ function Header(props) {
       setActiveIndex(0);
     } else if (location.pathname.includes("/shop")) {
       setActiveIndex(1);
+    } else if (location.pathname.includes("/cart")) {
+      setActiveIndex(1);
     } else if (location.pathname.includes("/our-story")) {
       setActiveIndex(2);
     } else if (location.pathname === "/contact") {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -143,7 +144,14 @@ function CartDrawer() {
           </Typography>
         </div>
         <div className={classes.btnContainer}>
-          <Button variant="contained" disableElevation className={classes.btn}>
+          <Button
+            variant="contained"
+            disableElevation
+            component={Link}
+            to="/cart"
+            onClick={toggleDrawerHandler(false)}
+            className={classes.btn}
+          >
             View Cart
           </Button>
           <Button variant="contained" disableElevation className={classes.btn}>

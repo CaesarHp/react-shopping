@@ -7,10 +7,12 @@ const dataSlice = createSlice({
   initialState: {
     allProductsInfo: [...ALL_PRODUCTS_DATA],
     newArrivalsInfo: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 6),
+
     pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index > 12),
     currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     currentPageNumber: 1,
+
     cartItem: [],
     cartTotalQuantity: 0,
     cartTotalPrice: 0,

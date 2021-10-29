@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { Button } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
@@ -90,6 +91,8 @@ const FILTER_INFO_BRAND = [
 function Filter() {
   const classes = useStyles();
 
+  const allProducts = useSelector((state) => state.data.allProductsInfo);
+
   const [drawerState, setDrawerState] = useState(false);
 
   const [categoryChecked, setCategoryChecked] = React.useState([]);
@@ -129,7 +132,11 @@ function Filter() {
     <List
       component="nav"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader
+          component="div"
+          disableSticky={true}
+          id="nested-list-subheader"
+        >
           Filter by category
         </ListSubheader>
       }
@@ -161,7 +168,11 @@ function Filter() {
     <List
       component="nav"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+        <ListSubheader
+          component="div"
+          disableSticky={true}
+          id="nested-list-subheader"
+        >
           Filter by brand
         </ListSubheader>
       }

@@ -9,6 +9,7 @@ import Layout from "./ui/Layout";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -34,7 +35,7 @@ function App() {
                 <ProductDetail />
               </Route>
               <Route path="/cart" exact>
-                Cart
+                <Cart />
               </Route>
               <Route path="/our-story" exact>
                 Our Story

@@ -15,12 +15,12 @@ const useStyles = makeStyles((theme) => ({
     padding: "10rem 6rem",
   },
   title: {
-    marginBottom: "3rem",
+    marginBottom: "4rem",
     textAlign: "center",
   },
   divider: {
     backgroundColor: theme.palette.divider,
-    margin: "2rem 1rem",
+    margin: "2rem 0",
   },
 }));
 
@@ -28,8 +28,8 @@ function CartMain() {
   const classes = useStyles();
 
   const cartItemInfo = useSelector((state) => state.data.cartItem);
-  const totalQuantity = useSelector((state) => state.data.cartTotalQuantity);
   const totalPrice = useSelector((state) => state.data.cartTotalPrice);
+  const shippingFee = useSelector((state) => state.data.shippingFee);
 
   return (
     <>
@@ -41,8 +41,12 @@ function CartMain() {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Grid container columnSpacing={4}>
-              <Grid item xs={8}>
+            <Grid
+              container
+              columnSpacing={{ xs: 0, lg: 6 }}
+              rowSpacing={{ xs: 4, lg: 0 }}
+            >
+              <Grid item xs={12} lg={8}>
                 {cartItemInfo.length === 0 ? (
                   <Typography variant="body1" className={classes.noItem}>
                     No item in cart
@@ -68,8 +72,11 @@ function CartMain() {
                   ))
                 )}
               </Grid>
-              <Grid item xs={4}>
-                <CartTotalCard totalPrice={totalPrice} />
+              <Grid item xs={12} lg={4}>
+                <CartTotalCard
+                  totalPrice={totalPrice}
+                  shippingFee={shippingFee}
+                />
               </Grid>
             </Grid>
           </Grid>

@@ -16,6 +16,7 @@ const dataSlice = createSlice({
     cartItem: [],
     cartTotalQuantity: 0,
     cartTotalPrice: 0,
+    shippingFee: 10,
   },
   reducers: {
     changePage(state, action) {
@@ -74,6 +75,16 @@ const dataSlice = createSlice({
       state.cartItem = state.cartItem.filter((item) => item.id !== id);
       state.cartTotalQuantity--;
       state.cartTotalPrice = state.cartTotalPrice - exsitingItem.price;
+    },
+
+    changeShippingFee(state, action) {
+      const method = action.payload;
+
+      if (method === "Standard") {
+        state.shippingFee = 10;
+      } else if (method === "Express") {
+        state.shippingFee = 20;
+      }
     },
   },
 });

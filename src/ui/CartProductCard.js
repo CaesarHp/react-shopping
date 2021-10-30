@@ -113,7 +113,7 @@ function CartProductCard({ name, img, price, retail, number, id }) {
           </Grid>
 
           <Grid item xs={1}>
-            <div className={classes.center}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <IconButton size="small" onClick={clearItemHandler}>
                 <ClearIcon style={{ color: "grey" }} />
               </IconButton>

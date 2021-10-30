@@ -47,6 +47,10 @@ function CartMain() {
               rowSpacing={{ xs: 4, lg: 0 }}
             >
               <Grid item xs={12} lg={8}>
+                <Divider className={classes.divider} light />
+              </Grid>
+
+              <Grid item xs={12} lg={8}>
                 {cartItemInfo.length === 0 ? (
                   <Typography variant="body1" className={classes.noItem}>
                     No item in cart

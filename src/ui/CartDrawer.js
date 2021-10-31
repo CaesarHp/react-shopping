@@ -154,7 +154,13 @@ function CartDrawer() {
           >
             View Cart
           </Button>
-          <Button variant="contained" disableElevation className={classes.btn}>
+          <Button
+            variant="contained"
+            disableElevation
+            component={Link}
+            to="/cart/payment"
+            className={classes.btn}
+          >
             Check Out
           </Button>
         </div>

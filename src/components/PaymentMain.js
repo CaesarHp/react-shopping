@@ -48,7 +48,11 @@ function PaymentMain() {
             <PaymentForm />
           </Grid>
           <Grid item xs={12} lg={4}>
-            <CartTotalCard totalPrice={totalPrice} shippingFee={shippingFee} />
+            <CartTotalCard
+              cartItemInfo={cartItemInfo}
+              totalPrice={totalPrice}
+              shippingFee={shippingFee}
+            />
           </Grid>
         </Grid>
       </div>

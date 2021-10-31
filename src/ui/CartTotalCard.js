@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router";
 
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
@@ -32,7 +33,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-
+  title: {
+    marginBottom: "1rem",
+  },
   subtitle: {
     marginBottom: "1rem",
   },
@@ -40,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.divider,
     margin: "2rem 0",
   },
-
   btn: {
     borderRadius: 0,
     padding: "0.8rem 2rem",
@@ -76,10 +78,12 @@ const CssTextField = styled(TextField)({
   },
 });
 
-function CartTotalCard({ totalPrice, shippingFee }) {
+function CartTotalCard({ cartItemInfo, totalPrice, shippingFee }) {
   const classes = useStyles();
 
   const dispatch = useDispatch();
+
+  const location = useLocation();
 
   const [shipping, setShipping] = useState("Standard");
 
@@ -89,10 +93,70 @@ function CartTotalCard({ totalPrice, shippingFee }) {
     dispatch(dataActions.changeShippingFee(e.target.value));
   };
 
+  const productsList =
+    cartItemInfo && cartItemInfo.length !== 0
+      ? cartItemInfo.map((item, index) => (
+          <div key={index} className={classes.flexHorizontal}>
+            <Typography variant="body1">{item.name}</Typography>
+            <Typography variant="body1">*{item.number}</Typography>
+            <Typography variant="body1">{item.price}</Typography>
+          </div>
+        ))
+      : null;
+
+  const shippingMethod = location.pathname.includes("/cart/payment") ? (
+    <div className={classes.flexHorizontal}>
+      <Typography variant="body1">
+        {shippingFee === 10 ? "Standard" : "Express"}
+      </Typography>
+      <Typography variant="body1">${shippingFee}</Typography>
+    </div>
+  ) : (
+    <FormControl component="fieldset" style={{ width: "100%" }}>
+      <RadioGroup
+        name="shipping"
+        value={shipping}
+        onChange={shippingChangeHandler}
+      >
+        <div className={classes.flexHorizontal}>
+          <FormControlLabel
+            value="Standard"
+            control={<Radio color="default" />}
+            label="Standard"
+          />
+          <div className={classes.flexVertical}>
+            <Typography variant="body1">$10.00</Typography>
+          </div>
+        </div>
+        <div className={classes.flexHorizontal}>
+          <FormControlLabel
+            value="Express"
+            control={<Radio color="default" />}
+            label="Express"
+          />
+          <div className={classes.flexVertical}>
+            <Typography variant="body1">$20.00</Typography>
+          </div>
+        </div>
+      </RadioGroup>
+    </FormControl>
+  );
+
   return (
     <>
       <Paper elevation={2} className={classes.root}>
         <Grid container>
+          {location.pathname.includes("/cart/payment") &&
+          cartItemInfo.length !== 0 ? (
+            <Grid item xs={12}>
+              <Typography variant="h6" className={classes.title}>
+                Products
+              </Typography>
+              {productsList}
+              <Divider className={classes.divider} light />
+            </Grid>
+          ) : null}
+
           <Grid item xs={12}>
             <div className={classes.flexHorizontal}>
               <Typography variant="h6">Subtotal</Typography>
@@ -104,43 +168,18 @@ function CartTotalCard({ totalPrice, shippingFee }) {
             <Typography variant="h6" className={classes.subtitle}>
               Shipping
             </Typography>
-            <FormControl component="fieldset" style={{ width: "100%" }}>
-              <RadioGroup
-                name="shipping"
-                value={shipping}
-                onChange={shippingChangeHandler}
-              >
-                <div className={classes.flexHorizontal}>
-                  <FormControlLabel
-                    value="Standard"
-                    control={<Radio color="default" />}
-                    label="Standard"
-                  />
-                  <div className={classes.flexVertical}>
-                    <Typography variant="body1">$10.00</Typography>
-                  </div>
-                </div>
-                <div className={classes.flexHorizontal}>
-                  <FormControlLabel
-                    value="Express"
-                    control={<Radio color="default" />}
-                    label="Express"
-                  />
-                  <div className={classes.flexVertical}>
-                    <Typography variant="body1">$20.00</Typography>
-                  </div>
-                </div>
-              </RadioGroup>
-            </FormControl>
+            {shippingMethod}
             <Divider className={classes.divider} light />
           </Grid>
-          <Grid item xs={12}>
-            <div className={classes.flexHorizontal}>
-              <Typography variant="h6">Coupon</Typography>
-              <CssTextField variant="outlined" id="coupon" label="Code" />
-            </div>
-            <Divider className={classes.divider} light />
-          </Grid>
+          {location.pathname.includes("/cart/payment") ? null : (
+            <Grid item xs={12}>
+              <div className={classes.flexHorizontal}>
+                <Typography variant="h6">Coupon</Typography>
+                <CssTextField variant="outlined" id="coupon" label="Code" />
+              </div>
+              <Divider className={classes.divider} light />
+            </Grid>
+          )}
           <Grid item xs={12}>
             <div className={classes.flexHorizontal}>
               <Typography variant="h6">Total</Typography>
@@ -152,7 +191,7 @@ function CartTotalCard({ totalPrice, shippingFee }) {
           </Grid>
 
           <Grid item xs={12}>
-            <div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button
                 variant="contained"
                 disableElevation
@@ -160,7 +199,9 @@ function CartTotalCard({ totalPrice, shippingFee }) {
                 to="/cart/payment"
                 className={classes.btn}
               >
-                Check Out
+                {location.pathname.includes("/cart/payment")
+                  ? "Check Out"
+                  : "Next Step"}
               </Button>
             </div>
           </Grid>

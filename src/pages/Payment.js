@@ -6,10 +6,6 @@ import PaymentMain from "../components/PaymentMain";
 function Payment() {
   return (
     <>
-      <AllPageTopBanner
-        title={"Organic Beauty"}
-        body={"Our formulations have proven efficacy"}
-      />
       <PaymentMain />
     </>
   );

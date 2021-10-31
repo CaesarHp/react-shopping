@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
+import { Link } from "react-router-dom";
 
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
@@ -155,6 +156,8 @@ function CartTotalCard({ totalPrice, shippingFee }) {
               <Button
                 variant="contained"
                 disableElevation
+                component={Link}
+                to="/cart/payment"
                 className={classes.btn}
               >
                 Check Out

@@ -47,14 +47,36 @@ function CartMain() {
               rowSpacing={{ xs: 4, lg: 0 }}
             >
               <Grid item xs={12} lg={8}>
+                <Grid container>
+                  <Grid item xs={1}></Grid>
+                  <Grid item xs={4}>
+                    <Typography variant="body2" style={{ paddingLeft: "1rem" }}>
+                      Products Name
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Typography variant="body2" style={{ textAlign: "center" }}>
+                      Retail
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Typography variant="body2" style={{ textAlign: "center" }}>
+                      Quantity
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <Typography variant="body2" style={{ textAlign: "center" }}>
+                      Subtotal
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={1}></Grid>
+                </Grid>
                 <Divider className={classes.divider} light />
               </Grid>
 
               <Grid item xs={12} lg={8}>
                 {cartItemInfo.length === 0 ? (
-                  <Typography variant="body1" className={classes.noItem}>
-                    No item in cart
-                  </Typography>
+                  <Typography variant="body1">No item in cart</Typography>
                 ) : (
                   cartItemInfo.map((item, index) => (
                     <div key={index}>

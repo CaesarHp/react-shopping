@@ -1,13 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Redirect } from "react-router";
 
-import AllPageTopBanner from "../ui/AllPageTopBanner";
 import PaymentMain from "../components/PaymentMain";
 
 function Payment() {
+  const cartInfo = useSelector((state) => state.data.cartItem);
+
   return (
-    <>
-      <PaymentMain />
-    </>
+    <>{cartInfo.length !== 0 ? <PaymentMain /> : <Redirect to="/cart" />}</>
   );
 }
 

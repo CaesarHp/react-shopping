@@ -96,11 +96,21 @@ function CartTotalCard({ cartItemInfo, totalPrice, shippingFee }) {
   const productsList =
     cartItemInfo && cartItemInfo.length !== 0
       ? cartItemInfo.map((item, index) => (
-          <div key={index} className={classes.flexHorizontal}>
-            <Typography variant="body1">{item.name}</Typography>
-            <Typography variant="body1">*{item.number}</Typography>
-            <Typography variant="body1">{item.price}</Typography>
-          </div>
+          <Grid container key={index}>
+            <Grid item xs={6}>
+              <Typography variant="body1">{item.name}</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant="body1" style={{ textAlign: "center" }}>
+                *{item.number}
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Typography variant="body1" style={{ textAlign: "end" }}>
+                {item.price}
+              </Typography>
+            </Grid>
+          </Grid>
         ))
       : null;
 

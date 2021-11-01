@@ -159,6 +159,7 @@ function CartDrawer() {
             disableElevation
             component={Link}
             to="/cart/payment"
+            onClick={toggleDrawerHandler(false)}
             className={classes.btn}
           >
             Check Out

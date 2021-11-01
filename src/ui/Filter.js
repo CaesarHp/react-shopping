@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
   },
   listTypo: {
-    fontWeight: 500,
+    fontWeight: 400,
   },
   divider: {
     backgroundColor: theme.palette.divider,
@@ -70,28 +70,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FILTER_INFO_CATEGORY = [
-  { name: "Body Wash", number: 2 },
-  { name: "Hand Care", number: 2 },
-  { name: "Moisturizers", number: 2 },
-  { name: "Skin Care", number: 2 },
-];
-
-const FILTER_INFO_BRAND = [
-  { name: "Aesop", number: 2 },
-  { name: "Biotherm", number: 2 },
-  { name: "CLINIQUE", number: 2 },
-  { name: "Dr. Jart+", number: 2 },
-  { name: "Estée Lauder", number: 2 },
-  { name: "Guerlain", number: 2 },
-  { name: "innisfree", number: 2 },
-  { name: "L'Occitane", number: 2 },
-];
-
 function Filter() {
   const classes = useStyles();
 
-  const allProducts = useSelector((state) => state.data.allProductsInfo);
+  const allBrands = useSelector((state) => state.data.brands);
+  const allCategories = useSelector((state) => state.data.categories);
 
   const [drawerState, setDrawerState] = useState(false);
 
@@ -113,6 +96,8 @@ function Filter() {
     }
 
     setCategoryChecked(newChecked);
+
+    console.log(categoryChecked);
   };
 
   const toggleBrandHandler = (value) => () => {
@@ -141,7 +126,7 @@ function Filter() {
         </ListSubheader>
       }
     >
-      {FILTER_INFO_CATEGORY.map((item, index) => (
+      {allCategories.map((item, index) => (
         <ListItem
           key={index}
           button
@@ -158,7 +143,7 @@ function Filter() {
               disableRipple
             />
           </ListItemIcon>
-          <ListItemText primary={item.name} />
+          <ListItemText primary={item} />
         </ListItem>
       ))}
     </List>
@@ -177,7 +162,7 @@ function Filter() {
         </ListSubheader>
       }
     >
-      {FILTER_INFO_BRAND.map((item, index) => (
+      {allBrands.map((item, index) => (
         <ListItem key={index} button dense onClick={toggleBrandHandler(index)}>
           <ListItemIcon>
             <Checkbox
@@ -188,7 +173,10 @@ function Filter() {
               disableRipple
             />
           </ListItemIcon>
-          <ListItemText primary={item.name} className={classes.listTypo} />
+          <ListItemText
+            primary={`${item.brandName} (${item.number})`}
+            className={classes.listTypo}
+          />
         </ListItem>
       ))}
     </List>

@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { ALL_PRODUCTS_DATA } from "./all-products-data";
+import { ALL_BRANDS_DATA } from "./all-brands-data";
+import { ALL_CATEGORIES } from "./all-categories-data";
 
 const dataSlice = createSlice({
   name: "data",
@@ -17,6 +19,20 @@ const dataSlice = createSlice({
     cartTotalQuantity: 0,
     cartTotalPrice: 0,
     shippingFee: 10,
+
+    brands: [...ALL_BRANDS_DATA].sort(function (a, b) {
+      const brandA = a.brandName.toUpperCase();
+      const brandB = b.brandName.toUpperCase();
+      if (brandA < brandB) {
+        return -1;
+      }
+      if (brandA > brandB) {
+        return 1;
+      }
+      return 0;
+    }),
+
+    categories: [...ALL_CATEGORIES],
   },
   reducers: {
     changePage(state, action) {

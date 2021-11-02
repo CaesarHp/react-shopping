@@ -96,8 +96,6 @@ function Filter() {
     }
 
     setCategoryChecked(newChecked);
-
-    console.log(categoryChecked);
   };
 
   const toggleBrandHandler = (value) => () => {

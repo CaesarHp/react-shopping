@@ -50,15 +50,20 @@ const dataSlice = createSlice({
       const exsitingItem = state.cartItem.find(
         (item) => item.id === newItem.id
       );
+
       if (!exsitingItem) {
         state.cartItem.push(newItem);
         state.cartTotalQuantity++;
-        state.cartTotalPrice = state.cartTotalPrice + newItem.price;
       } else {
         exsitingItem.number = exsitingItem.number + newItem.number;
-        exsitingItem.price = exsitingItem.price + newItem.price;
-        state.cartTotalPrice = state.cartTotalPrice + exsitingItem.price;
+        exsitingItem.price = exsitingItem.retail * exsitingItem.number;
       }
+
+      const priceList = state.cartItem.map((item) => {
+        return item.number * item.retail;
+      });
+      const sumPrice = (accumulator, curr) => accumulator + curr;
+      state.cartTotalPrice = priceList.reduce(sumPrice);
     },
 
     addExsitingItem(state, action) {

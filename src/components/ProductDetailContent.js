@@ -96,7 +96,7 @@ function ProductDetailContent({
       dataActions.addItemToCart({
         name: name,
         img: img,
-        price: price * itemNumber,
+        price: price,
         retail: price,
         id: id,
         number: itemNumber,

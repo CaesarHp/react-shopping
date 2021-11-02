@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Button } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
@@ -19,7 +20,6 @@ import ProductCardHorizontal from "./ProductCardHorizontal";
 const drawerWidth = 360;
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   badge: {
     "& .MuiBadge-badge": {
       backgroundColor: theme.palette.grey[300],
@@ -85,14 +85,15 @@ const useStyles = makeStyles((theme) => ({
 function CartDrawer() {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   const cartItemInfo = useSelector((state) => state.data.cartItem);
   const totalQuantity = useSelector((state) => state.data.cartTotalQuantity);
   const totalPrice = useSelector((state) => state.data.cartTotalPrice);
-
-  const [drawerState, setDrawerState] = useState(false);
+  const drawerState = useSelector((state) => state.data.drawerState);
 
   const toggleDrawerHandler = (open) => (event) => {
-    setDrawerState(open);
+    dispatch(dataActions.toggleDrawer(open));
   };
 
   const drawer = (

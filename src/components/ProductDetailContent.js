@@ -103,6 +103,8 @@ function ProductDetailContent({
       })
     );
 
+    dispatch(dataActions.toggleDrawer(true));
+
     scrollToTop();
   };
 

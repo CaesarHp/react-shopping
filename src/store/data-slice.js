@@ -19,6 +19,7 @@ const dataSlice = createSlice({
     cartTotalQuantity: 0,
     cartTotalPrice: 0,
     shippingFee: 10,
+    drawerState: false,
 
     brands: [...ALL_BRANDS_DATA].sort(function (a, b) {
       const brandA = a.brandName.toUpperCase();
@@ -106,6 +107,10 @@ const dataSlice = createSlice({
       } else if (method === "Express") {
         state.shippingFee = 20;
       }
+    },
+
+    toggleDrawer(state, action) {
+      state.drawerState = action.payload;
     },
   },
 });

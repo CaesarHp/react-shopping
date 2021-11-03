@@ -9,6 +9,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import CartProductCard from "../ui/CartProductCard";
 import CartTotalCard from "../ui/CartTotalCard";
+import ProductHeadTitle from "../ui/ProductHeadTitle";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,55 +49,35 @@ function CartMain() {
             >
               <Grid item xs={12} lg={8}>
                 <Grid container>
-                  <Grid item xs={1}></Grid>
-                  <Grid item xs={4}>
-                    <Typography variant="body2" style={{ paddingLeft: "1rem" }}>
-                      Products Name
-                    </Typography>
+                  <Grid item xs={12}>
+                    <ProductHeadTitle />
+                    <Divider className={classes.divider} light />
                   </Grid>
-                  <Grid item xs={2}>
-                    <Typography variant="body2" style={{ textAlign: "center" }}>
-                      Retail
-                    </Typography>
+                  <Grid item xs={12}>
+                    {cartItemInfo.length === 0 ? (
+                      <Typography variant="body1">No item in cart</Typography>
+                    ) : (
+                      cartItemInfo.map((item, index) => (
+                        <div key={index}>
+                          <CartProductCard
+                            key={item.id}
+                            name={item.name}
+                            img={item.img}
+                            price={item.price}
+                            retail={item.retail}
+                            id={item.id}
+                            number={item.number}
+                          />
+                          <Divider
+                            key={index + 1}
+                            className={classes.divider}
+                            light
+                          />
+                        </div>
+                      ))
+                    )}
                   </Grid>
-                  <Grid item xs={2}>
-                    <Typography variant="body2" style={{ textAlign: "center" }}>
-                      Quantity
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <Typography variant="body2" style={{ textAlign: "center" }}>
-                      Subtotal
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={1}></Grid>
                 </Grid>
-                <Divider className={classes.divider} light />
-              </Grid>
-
-              <Grid item xs={12} lg={8}>
-                {cartItemInfo.length === 0 ? (
-                  <Typography variant="body1">No item in cart</Typography>
-                ) : (
-                  cartItemInfo.map((item, index) => (
-                    <div key={index}>
-                      <CartProductCard
-                        key={item.id}
-                        name={item.name}
-                        img={item.img}
-                        price={item.price}
-                        retail={item.retail}
-                        id={item.id}
-                        number={item.number}
-                      />
-                      <Divider
-                        key={index + 1}
-                        className={classes.divider}
-                        light
-                      />
-                    </div>
-                  ))
-                )}
               </Grid>
               <Grid item xs={12} lg={4}>
                 <CartTotalCard

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     background: `url(${bottomBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "bottom",
   },
   container: {
     height: "70vh",

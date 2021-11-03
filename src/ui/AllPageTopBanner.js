@@ -5,12 +5,12 @@ import { Grid } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import topBanner from "../img/top-banner.jpg";
+import allPageBanner from "../img/all-page-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "60vh",
-    background: `url(${topBanner})`,
+    background: `url(${allPageBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",

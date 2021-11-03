@@ -12,6 +12,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import Contact from "./pages/Contact";
+import OurStory from "./pages/OurStory";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -43,7 +44,7 @@ function App() {
                 <Payment />
               </Route>
               <Route path="/our-story" exact>
-                Our Story
+                <OurStory />
               </Route>
               <Route path="/contact" exact>
                 <Contact />

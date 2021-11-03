@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Button } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
@@ -78,37 +80,24 @@ function Filter() {
 
   const [drawerState, setDrawerState] = useState(false);
 
-  const [categoryChecked, setCategoryChecked] = React.useState([]);
-  const [brandChecked, setBrandChecked] = React.useState([]);
+  const dispatch = useDispatch();
 
   const toggleDrawerHandler = (open) => (event) => {
     setDrawerState(open);
   };
 
-  const toggleCategoryHandler = (value) => () => {
-    const currentIndex = categoryChecked.indexOf(value);
-    const newChecked = [...categoryChecked];
+  const selectCategoryHandler = (e) => {
+    console.log(e.target.innerText);
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
+    dispatch(dataActions.categoryFilter(e.target.innerText));
 
-    setCategoryChecked(newChecked);
+    setDrawerState(false);
   };
 
-  const toggleBrandHandler = (value) => () => {
-    const currentIndex = brandChecked.indexOf(value);
-    const newChecked = [...brandChecked];
+  const selectBrandHandler = (e) => {
+    dispatch(dataActions.brandFilter(e.target.innerText));
 
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setBrandChecked(newChecked);
+    toggleDrawerHandler(false);
   };
 
   const categoryList = (
@@ -124,24 +113,23 @@ function Filter() {
         </ListSubheader>
       }
     >
+      <ListItem
+        button
+        dense
+        onClick={selectCategoryHandler}
+        className={classes.listTypo}
+      >
+        <ListItemText primary="View All" style={{ padding: "0.5rem 0" }} />
+      </ListItem>
       {allCategories.map((item, index) => (
         <ListItem
           key={index}
           button
           dense
-          onClick={toggleCategoryHandler(index)}
+          onClick={selectCategoryHandler}
           className={classes.listTypo}
         >
-          <ListItemIcon>
-            <Checkbox
-              edge="start"
-              color="default"
-              checked={categoryChecked.indexOf(index) !== -1}
-              tabIndex={-1}
-              disableRipple
-            />
-          </ListItemIcon>
-          <ListItemText primary={item} />
+          <ListItemText primary={item} style={{ padding: "0.5rem 0" }} />
         </ListItem>
       ))}
     </List>
@@ -160,9 +148,18 @@ function Filter() {
         </ListSubheader>
       }
     >
+      <ListItem
+        button
+        dense
+        onClick={selectCategoryHandler}
+        className={classes.listTypo}
+      >
+        <ListItemText primary="View All" />
+      </ListItem>
+
       {allBrands.map((item, index) => (
-        <ListItem key={index} button dense onClick={toggleBrandHandler(index)}>
-          <ListItemIcon>
+        <ListItem key={index} button dense onClick={selectBrandHandler}>
+          {/* <ListItemIcon>
             <Checkbox
               color="default"
               edge="start"
@@ -170,11 +167,8 @@ function Filter() {
               tabIndex={-1}
               disableRipple
             />
-          </ListItemIcon>
-          <ListItemText
-            primary={`${item.brandName} (${item.number})`}
-            className={classes.listTypo}
-          />
+          </ListItemIcon> */}
+          <ListItemText primary={item.brandName} className={classes.listTypo} />
         </ListItem>
       ))}
     </List>
@@ -200,7 +194,7 @@ function Filter() {
         {categoryList}
         <Divider className={classes.divider} light />
         {brandList}
-        <Divider className={classes.divider} light />
+        {/* <Divider className={classes.divider} light />
         <div>
           <Button
             variant="contained"
@@ -210,7 +204,7 @@ function Filter() {
           >
             Filter
           </Button>
-        </div>
+        </div> */}
       </Drawer>
     </>
   );

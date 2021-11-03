@@ -11,9 +11,10 @@ const dataSlice = createSlice({
     newArrivalsInfo: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 6),
 
     pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
-    pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index > 12),
+    pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index >= 12),
     currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     currentPageNumber: 1,
+    pages: 2,
 
     cartItem: [],
     cartTotalQuantity: 0,
@@ -111,6 +112,74 @@ const dataSlice = createSlice({
 
     toggleDrawer(state, action) {
       state.drawerState = action.payload;
+    },
+
+    categoryFilter(state, action) {
+      const selectedCategory = action.payload;
+
+      if (selectedCategory !== "View All") {
+        const filteredProducts = state.allProductsInfo.filter(
+          (item) => item.category === selectedCategory
+        );
+
+        if (filteredProducts.length < 12) {
+          state.pageOne = filteredProducts;
+          state.currentPage = filteredProducts;
+          state.pageTwo = [];
+          state.pages = 1;
+        } else {
+          state.pageOne = filteredProducts.filter((item, index) => index < 12);
+          state.currentPage = filteredProducts.filter(
+            (item, index) => index < 12
+          );
+          state.pageTwo = filteredProducts.filter((item, index) => index >= 12);
+        }
+      } else {
+        state.pageOne = state.allProductsInfo.filter(
+          (item, index) => index < 12
+        );
+        state.pageTwo = state.allProductsInfo.filter(
+          (item, index) => index >= 12
+        );
+        state.currentPage = state.allProductsInfo.filter(
+          (item, index) => index < 12
+        );
+        state.pages = 2;
+      }
+    },
+
+    brandFilter(state, action) {
+      const selectedBrand = action.payload;
+
+      if (selectedBrand !== "View All") {
+        const filteredProducts = state.allProductsInfo.filter(
+          (item) => item.brand === selectedBrand
+        );
+
+        if (filteredProducts.length < 12) {
+          state.pageOne = filteredProducts;
+          state.currentPage = filteredProducts;
+          state.pageTwo = [];
+          state.pages = 1;
+        } else {
+          state.pageOne = filteredProducts.filter((item, index) => index < 12);
+          state.currentPage = filteredProducts.filter(
+            (item, index) => index < 12
+          );
+          state.pageTwo = filteredProducts.filter((item, index) => index >= 12);
+        }
+      } else {
+        state.pageOne = state.allProductsInfo.filter(
+          (item, index) => index < 12
+        );
+        state.pageTwo = state.allProductsInfo.filter(
+          (item, index) => index >= 12
+        );
+        state.currentPage = state.allProductsInfo.filter(
+          (item, index) => index < 12
+        );
+        state.pages = 2;
+      }
     },
   },
 });

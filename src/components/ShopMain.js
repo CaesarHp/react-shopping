@@ -35,6 +35,7 @@ function ShopMain() {
   const dispatch = useDispatch();
 
   const pageNumber = useSelector((state) => state.data.currentPageNumber);
+  const pages = useSelector((state) => state.data.pages);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -62,7 +63,7 @@ function ShopMain() {
           <Grid item xs={12}>
             <div className={classes.pagination}>
               <Pagination
-                count={2}
+                count={pages}
                 page={pageNumber}
                 onChange={pageChangeHandler}
               />

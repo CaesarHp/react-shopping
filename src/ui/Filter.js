@@ -87,8 +87,6 @@ function Filter() {
   };
 
   const selectCategoryHandler = (e) => {
-    console.log(e.target.innerText);
-
     dispatch(dataActions.categoryFilter(e.target.innerText));
 
     setDrawerState(false);
@@ -97,7 +95,7 @@ function Filter() {
   const selectBrandHandler = (e) => {
     dispatch(dataActions.brandFilter(e.target.innerText));
 
-    toggleDrawerHandler(false);
+    setDrawerState(false);
   };
 
   const categoryList = (

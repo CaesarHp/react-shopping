@@ -118,21 +118,36 @@ const dataSlice = createSlice({
       const selectedCategory = action.payload;
 
       if (selectedCategory !== "View All") {
-        const filteredProducts = state.allProductsInfo.filter(
-          (item) => item.category === selectedCategory
-        );
+        const filteredProductsPageOne =
+          state.pageOne &&
+          state.pageOne.filter((item) => item.category === selectedCategory);
+        const filteredProductsPageTwo =
+          state.pageTwo &&
+          state.pageTwo.filter((item) => item.category === selectedCategory);
 
-        if (filteredProducts.length < 12) {
-          state.pageOne = filteredProducts;
-          state.currentPage = filteredProducts;
+        if (filteredProductsPageOne && filteredProductsPageOne.length < 12) {
+          state.pageOne = filteredProductsPageOne;
+          state.currentPage = filteredProductsPageOne;
           state.pageTwo = [];
           state.pages = 1;
-        } else {
-          state.pageOne = filteredProducts.filter((item, index) => index < 12);
-          state.currentPage = filteredProducts.filter(
+        } else if (
+          filteredProductsPageOne &&
+          filteredProductsPageOne.length >= 12
+        ) {
+          state.pageOne = filteredProductsPageOne.filter(
             (item, index) => index < 12
           );
-          state.pageTwo = filteredProducts.filter((item, index) => index >= 12);
+          state.currentPage = filteredProductsPageOne.filter(
+            (item, index) => index < 12
+          );
+          state.pageTwo = filteredProductsPageTwo.filter(
+            (item, index) => index >= 12
+          );
+        } else {
+          state.pageOne = [];
+          state.currentPage = [];
+          state.pageTwo = [];
+          state.pages = 1;
         }
       } else {
         state.pageOne = state.allProductsInfo.filter(
@@ -152,21 +167,36 @@ const dataSlice = createSlice({
       const selectedBrand = action.payload;
 
       if (selectedBrand !== "View All") {
-        const filteredProducts = state.allProductsInfo.filter(
-          (item) => item.brand === selectedBrand
-        );
+        const filteredProductsPageOne =
+          state.pageOne &&
+          state.pageOne.filter((item) => item.brand === selectedBrand);
+        const filteredProductsPageTwo =
+          state.pageTwo &&
+          state.pageTwo.filter((item) => item.brand === selectedBrand);
 
-        if (filteredProducts.length < 12) {
-          state.pageOne = filteredProducts;
-          state.currentPage = filteredProducts;
+        if (filteredProductsPageOne && filteredProductsPageOne.length < 12) {
+          state.pageOne = filteredProductsPageOne;
+          state.currentPage = filteredProductsPageOne;
           state.pageTwo = [];
           state.pages = 1;
-        } else {
-          state.pageOne = filteredProducts.filter((item, index) => index < 12);
-          state.currentPage = filteredProducts.filter(
+        } else if (
+          filteredProductsPageOne &&
+          filteredProductsPageOne.length >= 12
+        ) {
+          state.pageOne = filteredProductsPageOne.filter(
             (item, index) => index < 12
           );
-          state.pageTwo = filteredProducts.filter((item, index) => index >= 12);
+          state.currentPage = filteredProductsPageOne.filter(
+            (item, index) => index < 12
+          );
+          state.pageTwo = filteredProductsPageTwo.filter(
+            (item, index) => index >= 12
+          );
+        } else {
+          state.pageOne = [];
+          state.currentPage = [];
+          state.pageTwo = [];
+          state.pages = 1;
         }
       } else {
         state.pageOne = state.allProductsInfo.filter(

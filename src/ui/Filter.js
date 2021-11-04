@@ -162,14 +162,17 @@ function Filter() {
         onClick={selectCategoryHandler}
         className={classes.listTypo}
       >
-        <ListItemText primary="View All" />
+        <ListItemText primary="View All" style={{ padding: "0.5rem 0" }} />
       </ListItem>
 
       {allBrands.map((item, index) => (
         <ListItem key={index} button dense onClick={selectBrandHandler}>
-          <ListItemText primary={item.brandName} className={classes.listTypo} />
+          <ListItemText
+            primary={item.brandName}
+            style={{ padding: "0.5rem 0" }}
+          />
           <ListItemSecondaryAction>
-            {selectedBrand === item ? <CheckIcon /> : null}
+            {selectedBrand === item.brandName ? <CheckIcon /> : null}
           </ListItemSecondaryAction>
         </ListItem>
       ))}
@@ -196,17 +199,6 @@ function Filter() {
         {categoryList}
         <Divider className={classes.divider} light />
         {brandList}
-        {/* <Divider className={classes.divider} light />
-        <div>
-          <Button
-            variant="contained"
-            disableElevation
-            onClick={toggleDrawerHandler(false)}
-            className={classes.filterBtn}
-          >
-            Filter
-          </Button>
-        </div> */}
       </Drawer>
     </>
   );

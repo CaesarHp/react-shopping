@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
-import { Divider } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 

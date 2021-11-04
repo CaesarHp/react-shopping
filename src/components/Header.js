@@ -9,7 +9,6 @@ import { Toolbar } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { Tabs } from "@material-ui/core";
 import { Tab } from "@material-ui/core";
-import { Badge } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
 import { IconButton } from "@material-ui/core";
 import { List } from "@material-ui/core";

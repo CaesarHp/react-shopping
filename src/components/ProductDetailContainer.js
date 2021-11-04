@@ -1,15 +1,9 @@
 import React from "react";
 
 import { Grid } from "@mui/material";
-import { Typography } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-
-import { makeStyles } from "@material-ui/core/styles";
 
 import ProductDetailImg from "./ProductDetailImg";
 import ProductDetailContent from "./ProductDetailContent";
-
-const useStyles = makeStyles((theme) => ({}));
 
 function ProductDetailContainer({
   name,
@@ -20,8 +14,6 @@ function ProductDetailContainer({
   category,
   id,
 }) {
-  const classes = useStyles();
-
   return (
     <>
       <Grid container columnSpacing={4}>

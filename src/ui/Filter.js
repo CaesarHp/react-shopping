@@ -10,13 +10,13 @@ import { IconButton } from "@material-ui/core";
 import { List } from "@material-ui/core";
 import { ListSubheader } from "@material-ui/core";
 import { ListItem } from "@material-ui/core";
+import { ListItemSecondaryAction } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
-import { ListItemIcon } from "@material-ui/core";
-import { Checkbox } from "@material-ui/core";
 import { Divider } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import CheckIcon from "@mui/icons-material/Check";
 
 const drawerWidth = 340;
 
@@ -88,15 +88,22 @@ function Filter() {
 
   const selectCategoryHandler = (e) => {
     dispatch(dataActions.categoryFilter(e.target.innerText));
+    dispatch(dataActions.selectCategory(e.target.innerText));
+
+    console.log(e);
 
     setDrawerState(false);
   };
 
   const selectBrandHandler = (e) => {
     dispatch(dataActions.brandFilter(e.target.innerText));
+    dispatch(dataActions.selectBrand(e.target.innerText));
 
     setDrawerState(false);
   };
+
+  const selectedCategory = useSelector((state) => state.data.selectedCategory);
+  const selectedBrand = useSelector((state) => state.data.selectedBrand);
 
   const categoryList = (
     <List
@@ -128,6 +135,9 @@ function Filter() {
           className={classes.listTypo}
         >
           <ListItemText primary={item} style={{ padding: "0.5rem 0" }} />
+          <ListItemSecondaryAction>
+            {selectedCategory === item ? <CheckIcon /> : null}
+          </ListItemSecondaryAction>
         </ListItem>
       ))}
     </List>
@@ -157,16 +167,10 @@ function Filter() {
 
       {allBrands.map((item, index) => (
         <ListItem key={index} button dense onClick={selectBrandHandler}>
-          {/* <ListItemIcon>
-            <Checkbox
-              color="default"
-              edge="start"
-              checked={brandChecked.indexOf(index) !== -1}
-              tabIndex={-1}
-              disableRipple
-            />
-          </ListItemIcon> */}
           <ListItemText primary={item.brandName} className={classes.listTypo} />
+          <ListItemSecondaryAction>
+            {selectedBrand === item ? <CheckIcon /> : null}
+          </ListItemSecondaryAction>
         </ListItem>
       ))}
     </List>

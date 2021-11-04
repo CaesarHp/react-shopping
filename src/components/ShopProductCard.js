@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { Grid } from "@mui/material";
 import { Typography } from "@material-ui/core";
@@ -17,7 +19,14 @@ const useStyles = makeStyles((theme) => ({
 function ShopProductCard() {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   const cardInfo = useSelector((state) => state.data.currentPage);
+  const allProductsInfo = useSelector((state) => state.data.allProductsInfo);
+
+  useEffect(() => {
+    dispatch(dataActions.init());
+  }, [allProductsInfo]);
 
   return (
     <>

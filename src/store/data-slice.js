@@ -9,10 +9,14 @@ const dataSlice = createSlice({
   initialState: {
     allProductsInfo: [...ALL_PRODUCTS_DATA],
     newArrivalsInfo: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 6),
+    resetProductsInfo: [...ALL_PRODUCTS_DATA],
 
-    pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
-    pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index >= 12),
-    currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
+    // pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
+    // pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index >= 12),
+    // currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
+    pageOne: [],
+    pageTwo: [],
+    currentPage: [],
     currentPageNumber: 1,
     pages: 2,
 
@@ -35,8 +39,21 @@ const dataSlice = createSlice({
     }),
 
     categories: [...ALL_CATEGORIES],
+
+    selectedCategory: "",
+    selectedBrand: "",
   },
   reducers: {
+    init(state, action) {
+      state.pageOne = state.allProductsInfo.filter((item, index) => index < 12);
+
+      state.pageTwo = state.allProductsInfo.filter(
+        (item, index) => index >= 12
+      );
+
+      state.currentPage = state.pageOne;
+    },
+
     changePage(state, action) {
       if (action.payload === 1) {
         state.currentPage = state.pageOne;
@@ -118,48 +135,20 @@ const dataSlice = createSlice({
       const selectedCategory = action.payload;
 
       if (selectedCategory !== "View All") {
-        const filteredProductsPageOne =
-          state.pageOne &&
-          state.pageOne.filter((item) => item.category === selectedCategory);
-        const filteredProductsPageTwo =
-          state.pageTwo &&
-          state.pageTwo.filter((item) => item.category === selectedCategory);
+        const filteredProducts =
+          state.allProductsInfo &&
+          state.resetProductsInfo.filter(
+            (item) => item.category === selectedCategory
+          );
 
-        if (filteredProductsPageOne && filteredProductsPageOne.length < 12) {
-          state.pageOne = filteredProductsPageOne;
-          state.currentPage = filteredProductsPageOne;
-          state.pageTwo = [];
-          state.pages = 1;
-        } else if (
-          filteredProductsPageOne &&
-          filteredProductsPageOne.length >= 12
-        ) {
-          state.pageOne = filteredProductsPageOne.filter(
-            (item, index) => index < 12
-          );
-          state.currentPage = filteredProductsPageOne.filter(
-            (item, index) => index < 12
-          );
-          state.pageTwo = filteredProductsPageTwo.filter(
-            (item, index) => index >= 12
-          );
-        } else {
-          state.pageOne = [];
-          state.currentPage = [];
-          state.pageTwo = [];
-          state.pages = 1;
-        }
+        state.allProductsInfo = filteredProducts;
+        state.pages = state.allProductsInfo.length > 12 ? 2 : 1;
+        state.selectedBrand = "";
       } else {
-        state.pageOne = state.allProductsInfo.filter(
-          (item, index) => index < 12
-        );
-        state.pageTwo = state.allProductsInfo.filter(
-          (item, index) => index >= 12
-        );
-        state.currentPage = state.allProductsInfo.filter(
-          (item, index) => index < 12
-        );
+        state.allProductsInfo = state.resetProductsInfo;
         state.pages = 2;
+        state.selectedCategory = "";
+        state.selectedBrand = "";
       }
     },
 
@@ -167,49 +156,38 @@ const dataSlice = createSlice({
       const selectedBrand = action.payload;
 
       if (selectedBrand !== "View All") {
-        const filteredProductsPageOne =
-          state.pageOne &&
-          state.pageOne.filter((item) => item.brand === selectedBrand);
-        const filteredProductsPageTwo =
-          state.pageTwo &&
-          state.pageTwo.filter((item) => item.brand === selectedBrand);
+        let filteredProducts;
 
-        if (filteredProductsPageOne && filteredProductsPageOne.length < 12) {
-          state.pageOne = filteredProductsPageOne;
-          state.currentPage = filteredProductsPageOne;
-          state.pageTwo = [];
-          state.pages = 1;
-        } else if (
-          filteredProductsPageOne &&
-          filteredProductsPageOne.length >= 12
-        ) {
-          state.pageOne = filteredProductsPageOne.filter(
-            (item, index) => index < 12
-          );
-          state.currentPage = filteredProductsPageOne.filter(
-            (item, index) => index < 12
-          );
-          state.pageTwo = filteredProductsPageTwo.filter(
-            (item, index) => index >= 12
-          );
-        } else {
-          state.pageOne = [];
-          state.currentPage = [];
-          state.pageTwo = [];
-          state.pages = 1;
+        if (state.selectedCategory === "") {
+          filteredProducts =
+            state.allProductsInfo &&
+            state.resetProductsInfo.filter(
+              (item) => item.brand === selectedBrand
+            );
+        } else if (state.selectedCategory !== "") {
+          filteredProducts =
+            state.allProductsInfo &&
+            state.allProductsInfo.filter(
+              (item) => item.brand === selectedBrand
+            );
         }
+
+        state.allProductsInfo = filteredProducts;
+        state.pages = state.allProductsInfo.length > 12 ? 2 : 1;
       } else {
-        state.pageOne = state.allProductsInfo.filter(
-          (item, index) => index < 12
-        );
-        state.pageTwo = state.allProductsInfo.filter(
-          (item, index) => index >= 12
-        );
-        state.currentPage = state.allProductsInfo.filter(
-          (item, index) => index < 12
-        );
+        state.allProductsInfo = state.resetProductsInfo;
         state.pages = 2;
+        state.selectedCategory = "";
+        state.selectedBrand = "";
       }
+    },
+
+    selectCategory(state, action) {
+      state.selectedCategory = action.payload;
+    },
+
+    selectBrand(state, action) {
+      state.selectedBrand = action.payload;
     },
   },
 });

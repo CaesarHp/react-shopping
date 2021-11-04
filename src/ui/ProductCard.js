@@ -14,7 +14,7 @@ import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 0,
-    border: "1px solid #eee",
+    //border: "1px solid #eee",
   },
   media: {
     height: 0,
@@ -23,6 +23,14 @@ const useStyles = makeStyles((theme) => ({
   contentContainer: {
     textAlign: "center",
     maxWidth: "16rem",
+  },
+  title: {
+    fontWeight: 500,
+    padding: "1rem 0",
+  },
+  body: {
+    fontWeight: 300,
+    paddingBottom: "1rem",
   },
   btnContainer: {
     display: "flex",
@@ -49,31 +57,26 @@ export default function ProductCard({ name, price, img, id }) {
       <Grid container justifyContent="center" alignItems="center">
         <Grid item>
           <Card elevation={0} className={classes.root}>
-            <CardActionArea>
+            <CardActionArea component={Link} to={`/shop/${id}`}>
               <CardMedia className={classes.media} image={img} title={name} />
 
               <CardContent className={classes.contentContainer}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography
+                  variant="body1"
+                  component="h2"
+                  className={classes.title}
+                >
                   {name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography
+                  variant="body1"
+                  component="p"
+                  className={classes.body}
+                >
                   ${price}
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions className={classes.btnContainer}>
-              <Button
-                variant="contained"
-                size="medium"
-                color="primary"
-                disableElevation
-                component={Link}
-                to={`/shop/${id}`}
-                className={classes.btn}
-              >
-                View More
-              </Button>
-            </CardActions>
           </Card>
         </Grid>
       </Grid>

@@ -134,7 +134,7 @@ const dataSlice = createSlice({
     categoryFilter(state, action) {
       const selectedCategory = action.payload;
 
-      if (selectedCategory !== "View All") {
+      if (selectedCategory !== "All Categories") {
         const filteredProducts =
           state.allProductsInfo &&
           state.resetProductsInfo.filter(
@@ -155,7 +155,7 @@ const dataSlice = createSlice({
     brandFilter(state, action) {
       const selectedBrand = action.payload;
 
-      if (selectedBrand !== "View All") {
+      if (selectedBrand !== "All Brands") {
         let filteredProducts;
 
         if (state.selectedCategory === "") {

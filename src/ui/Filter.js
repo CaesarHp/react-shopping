@@ -124,7 +124,10 @@ function Filter() {
         onClick={selectCategoryHandler}
         className={classes.listTypo}
       >
-        <ListItemText primary="View All" style={{ padding: "0.5rem 0" }} />
+        <ListItemText
+          primary="All Categories"
+          style={{ padding: "0.5rem 0" }}
+        />
       </ListItem>
       {allCategories.map((item, index) => (
         <ListItem
@@ -156,13 +159,12 @@ function Filter() {
         </ListSubheader>
       }
     >
-      <ListItem
-        button
-        dense
-        onClick={selectCategoryHandler}
-        className={classes.listTypo}
-      >
-        <ListItemText primary="View All" style={{ padding: "0.5rem 0" }} />
+      <ListItem button dense className={classes.listTypo}>
+        <ListItemText
+          primary="All Brands"
+          onClick={selectBrandHandler}
+          style={{ padding: "0.5rem 0" }}
+        />
       </ListItem>
 
       {allBrands.map((item, index) => (

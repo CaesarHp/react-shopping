@@ -81,7 +81,7 @@ function ShopHeader() {
                 onClick={selectedBrand !== "" ? backToCategoryHandler : null}
                 className={classes.path}
               >
-                {selectedCategory === "" ? "All" : selectedCategory}
+                {selectedCategory === "" ? "All Categories" : selectedCategory}
               </Typography>
               {selectedBrand === "" ? null : <KeyboardArrowRightIcon />}
               <Typography variant="body1">

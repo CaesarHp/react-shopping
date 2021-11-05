@@ -8,6 +8,8 @@ import ProductDetailMain from "../components/ProductDetailMain";
 function ProductDetail() {
   const params = useParams();
 
+  console.log(params);
+
   const allProducts = useSelector((state) => state.data.allProductsInfo);
 
   const productInfo = allProducts.find((item) => item.id === params.productId);

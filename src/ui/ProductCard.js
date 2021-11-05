@@ -57,7 +57,7 @@ export default function ProductCard({ name, price, img, id }) {
       <Grid container justifyContent="center" alignItems="center">
         <Grid item>
           <Card elevation={0} className={classes.root}>
-            <CardActionArea component={Link} to={`/shop/${id}`}>
+            <CardActionArea component={Link} to={`/shop/product/${id}`}>
               <CardMedia className={classes.media} image={img} title={name} />
 
               <CardContent className={classes.contentContainer}>

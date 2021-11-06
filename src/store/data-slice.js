@@ -11,9 +11,6 @@ const dataSlice = createSlice({
     newArrivalsInfo: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 6),
     resetProductsInfo: [...ALL_PRODUCTS_DATA],
 
-    // pageOne: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
-    // pageTwo: [...ALL_PRODUCTS_DATA].filter((item, index) => index >= 12),
-    // currentPage: [...ALL_PRODUCTS_DATA].filter((item, index) => index < 12),
     pageOne: [],
     pageTwo: [],
     currentPage: [],
@@ -46,11 +43,9 @@ const dataSlice = createSlice({
   reducers: {
     init(state, action) {
       state.pageOne = state.allProductsInfo.filter((item, index) => index < 12);
-
       state.pageTwo = state.allProductsInfo.filter(
         (item, index) => index >= 12
       );
-
       state.currentPage = state.pageOne;
     },
 

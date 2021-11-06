@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
+import { useHistory } from "react-router";
 
 import { Button } from "@material-ui/core";
 import { Drawer } from "@material-ui/core";
@@ -75,6 +76,8 @@ const useStyles = makeStyles((theme) => ({
 function Filter() {
   const classes = useStyles();
 
+  const history = useHistory();
+
   const allBrands = useSelector((state) => state.data.brands);
   const allCategories = useSelector((state) => state.data.categories);
 
@@ -89,8 +92,6 @@ function Filter() {
   const selectCategoryHandler = (e) => {
     dispatch(dataActions.categoryFilter(e.target.innerText));
     dispatch(dataActions.selectCategory(e.target.innerText));
-
-    console.log(e);
 
     setDrawerState(false);
   };

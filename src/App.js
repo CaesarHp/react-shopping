@@ -34,9 +34,6 @@ function App() {
               <Route path="/shop" exact>
                 <Shop />
               </Route>
-              <Route path="/shop/:currentPage" exact>
-                Current Page
-              </Route>
               <Route path="/shop/product/:productId" exact>
                 <ProductDetail />
               </Route>

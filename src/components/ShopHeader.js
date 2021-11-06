@@ -59,7 +59,7 @@ function ShopHeader() {
     dispatch(dataActions.categoryFilter(selectedCategory));
   };
   const backToShopHandler = () => {
-    dispatch(dataActions.categoryFilter("View All"));
+    dispatch(dataActions.categoryFilter("All Categories"));
   };
 
   return (

@@ -64,6 +64,8 @@ function Sort() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
 
+  const sortOptionHandler = () => {};
+
   const sortChangeHandler = (e) => {
     setSort(e.target.value);
   };
@@ -81,7 +83,11 @@ function Sort() {
           className={classes.root}
         >
           {SORT_BY.map((option, index) => (
-            <MenuItem key={index} value={option.value}>
+            <MenuItem
+              key={index}
+              value={option.value}
+              onClick={sortOptionHandler}
+            >
               {option.value}
             </MenuItem>
           ))}

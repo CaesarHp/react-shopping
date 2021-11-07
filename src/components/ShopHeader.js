@@ -20,9 +20,12 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "black",
     cursor: "pointer",
+  },
+  headerContainer: {
+    display: "flex",
 
     [theme.breakpoints.down("md")]: {
-      textAlign: "center",
+      justifyContent: "center",
       marginBottom: "2rem",
     },
   },
@@ -67,26 +70,30 @@ function ShopHeader() {
       <div className={classes.root}>
         <Grid container alignItems="center">
           <Grid item xs={12} lg={6}>
-            <div className={classes.flexHorizontal}>
-              <Typography
-                variant="body1"
-                onClick={backToShopHandler}
-                className={classes.path}
-              >
-                Shop
-              </Typography>
-              <KeyboardArrowRightIcon />
-              <Typography
-                variant="body1"
-                onClick={selectedBrand !== "" ? backToCategoryHandler : null}
-                className={classes.path}
-              >
-                {selectedCategory === "" ? "All Categories" : selectedCategory}
-              </Typography>
-              {selectedBrand === "" ? null : <KeyboardArrowRightIcon />}
-              <Typography variant="body1">
-                {selectedBrand === "" ? null : selectedBrand}
-              </Typography>
+            <div className={classes.headerContainer}>
+              <div className={classes.flexHorizontal}>
+                <Typography
+                  variant="body1"
+                  onClick={backToShopHandler}
+                  className={classes.path}
+                >
+                  Shop
+                </Typography>
+                <KeyboardArrowRightIcon />
+                <Typography
+                  variant="body1"
+                  onClick={selectedBrand !== "" ? backToCategoryHandler : null}
+                  className={classes.path}
+                >
+                  {selectedCategory === ""
+                    ? "All Categories"
+                    : selectedCategory}
+                </Typography>
+                {selectedBrand === "" ? null : <KeyboardArrowRightIcon />}
+                <Typography variant="body1">
+                  {selectedBrand === "" ? null : selectedBrand}
+                </Typography>
+              </div>
             </div>
           </Grid>
           <Grid item xs={12} lg={6}>

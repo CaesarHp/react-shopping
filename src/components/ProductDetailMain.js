@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
 import { useHistory } from "react-router";
@@ -54,6 +55,8 @@ function ProductDetailMain({
     history.push("/shop");
   };
 
+  const cardInfo = useSelector((state) => state.data.newArrivalsInfo);
+
   return (
     <>
       <div className={classes.root}>
@@ -89,9 +92,6 @@ function ProductDetailMain({
               category={category}
               id={id}
             />
-          </Grid>
-          <Grid item xs={12}>
-            <HomeProductCard />
           </Grid>
         </Grid>
       </div>

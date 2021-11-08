@@ -184,6 +184,50 @@ const dataSlice = createSlice({
     selectBrand(state, action) {
       state.selectedBrand = action.payload;
     },
+
+    sort(state, action) {
+      const sortAction = action.payload;
+
+      if (sortAction === "Featured") {
+        state.allProductsInfo = state.resetProductsInfo;
+      } else if (sortAction === "Most Popular") {
+        state.allProductsInfo.sort(function (a, b) {
+          const nameA = a.name.toUpperCase().replace(" ", "");
+          const nameB = b.name.toUpperCase().replace(" ", "");
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      } else if (sortAction === "Price Low to High") {
+        state.allProductsInfo.sort(function (a, b) {
+          const nameA = a.price;
+          const nameB = b.price;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+      } else if (sortAction === "Price High to Low") {
+        state.allProductsInfo.sort(function (a, b) {
+          const nameA = a.price;
+          const nameB = b.price;
+          if (nameA < nameB) {
+            return 1;
+          }
+          if (nameA > nameB) {
+            return -1;
+          }
+          return 0;
+        });
+      }
+    },
   },
 });
 

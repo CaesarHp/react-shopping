@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { dataActions } from "../store/data-slice";
 
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -59,15 +59,14 @@ const CssTextField = withStyles({
 function Sort() {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
+
   const [sort, setSort] = useState("Featured");
-
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-
-  const sortOptionHandler = () => {};
 
   const sortChangeHandler = (e) => {
     setSort(e.target.value);
+
+    dispatch(dataActions.sort(e.target.value));
   };
 
   return (
@@ -83,11 +82,7 @@ function Sort() {
           className={classes.root}
         >
           {SORT_BY.map((option, index) => (
-            <MenuItem
-              key={index}
-              value={option.value}
-              onClick={sortOptionHandler}
-            >
+            <MenuItem key={index} value={option.value}>
               {option.value}
             </MenuItem>
           ))}

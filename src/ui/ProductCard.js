@@ -14,7 +14,6 @@ import { Grid } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 0,
-    //border: "1px solid #eee",
   },
   media: {
     height: 0,
@@ -26,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: 500,
-    padding: "1rem 0",
+    padding: "0.5rem 0",
   },
   body: {
     fontWeight: 300,
-    paddingBottom: "1rem",
+    paddingBottom: "0.5rem",
   },
   btnContainer: {
     display: "flex",

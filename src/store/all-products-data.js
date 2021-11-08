@@ -26,7 +26,7 @@ import img25 from "../img/cosmetic-mockup-25.jpg";
 export const ALL_PRODUCTS_DATA = [
   {
     name: "Foundation",
-    price: 89.99,
+    price: 85.99,
     category: "Face Makeup",
     img: img08,
     brand: "Giorgio Armani",
@@ -36,7 +36,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Setting Powder",
-    price: 89.99,
+    price: 45.99,
     category: "Face Makeup",
     img: img04,
     brand: "MAC",
@@ -46,7 +46,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Face Primer",
-    price: 89.99,
+    price: 65.99,
     category: "Face Makeup",
     img: img10,
     brand: "Charlotte Tilbury",
@@ -56,7 +56,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Concealer",
-    price: 89.99,
+    price: 39.99,
     category: "Face Makeup",
     img: img25,
     brand: "NARS",
@@ -66,7 +66,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Highlighter",
-    price: 89.99,
+    price: 58.99,
     category: "Face Makeup",
     img: img12,
     brand: "Dior",
@@ -76,7 +76,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Contour",
-    price: 89.99,
+    price: 45.99,
     category: "Face Makeup",
     img: img23,
     brand: "Anastasia Beverly Hills",
@@ -86,7 +86,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Eye Shadow",
-    price: 89.99,
+    price: 72.99,
     category: "Eye Makeup",
     img: img21,
     brand: "Charlotte Tilbury",
@@ -96,7 +96,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Eye Primer",
-    price: 89.99,
+    price: 32.99,
     category: "Eye Makeup",
     img: img22,
     brand: "ILIA",
@@ -106,7 +106,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Powder Blush",
-    price: 89.99,
+    price: 39.99,
     category: "Cheek Makeup",
     img: img06,
     brand: "Laura Mercier",
@@ -116,7 +116,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Lip Gloss",
-    price: 89.99,
+    price: 24.99,
     category: "Lip Makeup",
     img: img13,
     brand: "FENTY BEAUTY",
@@ -126,7 +126,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Matte Lipstick",
-    price: 89.99,
+    price: 39.99,
     category: "Lip Makeup",
     img: img14,
     brand: "Charlotte Tilbury",
@@ -136,7 +136,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Rose Seed Oil",
-    price: 89.99,
+    price: 9.99,
     category: "Face Care",
     img: img05,
     brand: "The Ordinary",
@@ -146,7 +146,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Moisturizer",
-    price: 89.99,
+    price: 80.99,
     category: "Face Care",
     img: img15,
     brand: "Bobbi Brown",
@@ -156,7 +156,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Night Cream",
-    price: 89.99,
+    price: 165.99,
     category: "Face Care",
     img: img16,
     brand: "Charlotte Tilbury",
@@ -166,7 +166,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Treatment Lotion",
-    price: 89.99,
+    price: 138.99,
     category: "Face Care",
     img: img01,
     brand: "Estée Lauder",
@@ -176,7 +176,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Face Mist",
-    price: 89.99,
+    price: 109.99,
     category: "Face Care",
     img: img11,
     brand: "Omorovicza",
@@ -186,7 +186,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Toner",
-    price: 89.99,
+    price: 9.99,
     category: "Face Care",
     img: img02,
     brand: "The Ordinary",
@@ -196,7 +196,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "BB Tinted Moisturizer",
-    price: 89.99,
+    price: 49.99,
     category: "Face Care",
     img: img20,
     brand: "tarte",
@@ -206,7 +206,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Fragrance",
-    price: 89.99,
+    price: 189.99,
     category: "Fragrance",
     img: img07,
     brand: "Jo Malone London",
@@ -216,7 +216,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Conditioner",
-    price: 89.99,
+    price: 38.99,
     category: "Hair Care",
     img: img24,
     brand: "Olaplex",
@@ -226,7 +226,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Shampoo",
-    price: 89.99,
+    price: 64.99,
     category: "Hair Care",
     img: img03,
     brand: "Playa",
@@ -236,7 +236,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Body Wash",
-    price: 89.99,
+    price: 30.99,
     category: "Body Care",
     img: img18,
     brand: "By Rosie Jane",
@@ -246,7 +246,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Body Scrub",
-    price: 89.99,
+    price: 49.99,
     category: "Body Care",
     img: img19,
     brand: "OUAI",
@@ -256,7 +256,7 @@ export const ALL_PRODUCTS_DATA = [
   },
   {
     name: "Facial Cleanser",
-    price: 89.99,
+    price: 19.99,
     category: "Face Care",
     img: img09,
     brand: "innisfree",

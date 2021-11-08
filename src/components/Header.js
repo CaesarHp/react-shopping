@@ -126,7 +126,7 @@ function Header(props) {
       setActiveIndex(1);
     } else if (location.pathname.includes("/cart")) {
       setActiveIndex(1);
-    } else if (location.pathname.includes("/our-story")) {
+    } else if (location.pathname.includes("/about-us")) {
       setActiveIndex(2);
     } else if (location.pathname === "/contact") {
       setActiveIndex(3);
@@ -150,8 +150,8 @@ function Header(props) {
         link: "/shop",
       },
       {
-        name: "Our Story",
-        link: "/our-story",
+        name: "About Us",
+        link: "/about-us",
       },
       {
         name: "Contact",

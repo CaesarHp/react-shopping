@@ -7,7 +7,7 @@ function Shop() {
   return (
     <>
       <AllPageTopBanner
-        title={"Organic Beauty"}
+        title={"Shop"}
         body={"Our formulations have proven efficacy"}
       />
       <ShopMain />

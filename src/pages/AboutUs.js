@@ -2,15 +2,15 @@ import React from "react";
 
 import AllPageTopBanner from "../ui/AllPageTopBanner";
 
-function OurStory() {
+function AboutUs() {
   return (
     <>
       <AllPageTopBanner
-        title={"Our Story"}
+        title={"About Us"}
         body={"Our formulations have proven efficacy"}
       />
     </>
   );
 }
 
-export default OurStory;
+export default AboutUs;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Typography } from "@material-ui/core";
 import { Grid } from "@mui/material";
@@ -109,6 +110,8 @@ function HomeCategory() {
                     variant="contained"
                     size="large"
                     disableElevation
+                    component={Link}
+                    to="/shop"
                     className={classes.btn}
                   >
                     Shop All

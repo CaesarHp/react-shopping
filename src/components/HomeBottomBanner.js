@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: "black",
-    fontWeight: 300,
+    fontWeight: 400,
     marginBottom: theme.spacing(2),
   },
   body: {

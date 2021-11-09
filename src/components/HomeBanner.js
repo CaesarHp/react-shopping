@@ -11,14 +11,14 @@ import topBanner from "../img/top-banner.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "95vh",
+    minHeight: "90vh",
     background: `url(${topBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
   container: {
-    height: "95vh",
+    height: "90vh",
     display: "flex",
     alignItems: "center",
     padding: "0 4rem",
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contentContainer: {
-    marginTop: "8rem",
+    marginTop: "5rem",
 
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: "black",
-    fontWeight: 300,
+    fontWeight: 400,
     marginBottom: theme.spacing(2),
   },
   body: {
@@ -69,7 +69,7 @@ function HomeBanner() {
       <div className={classes.root}>
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={4}>
               <Typography variant="h3" className={classes.title}>
                 Organic Beauty
               </Typography>
@@ -89,7 +89,7 @@ function HomeBanner() {
                 Shop All
               </Button>
             </Grid>
-            <Grid item md={7}></Grid>
+            <Grid item md={8}></Grid>
           </Grid>
         </div>
       </div>

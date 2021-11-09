@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color: "black",
-    fontWeight: 300,
+    fontWeight: 400,
     marginBottom: theme.spacing(2),
   },
   body: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AllPageTopBanner({ title, body }) {
+function AllPageTopBanner({ title }) {
   const classes = useStyles();
 
   return (
@@ -87,7 +87,8 @@ function AllPageTopBanner({ title, body }) {
               </Typography>
 
               <Typography variant="body1" className={classes.body}>
-                {body}
+                Free gifts and samples with any order when you spend $49.99. End
+                of season sale starts next week, subscrib us for more news.
               </Typography>
             </Grid>
             <Grid item lg={7}></Grid>

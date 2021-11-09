@@ -59,7 +59,11 @@ function ShopHeader() {
 
   const backToCategoryHandler = () => {
     dispatch(dataActions.selectBrand(""));
-    dispatch(dataActions.categoryFilter(selectedCategory));
+    dispatch(
+      dataActions.categoryFilter(
+        selectedCategory === "" ? "All Categories" : selectedCategory
+      )
+    );
   };
   const backToShopHandler = () => {
     dispatch(dataActions.categoryFilter("All Categories"));

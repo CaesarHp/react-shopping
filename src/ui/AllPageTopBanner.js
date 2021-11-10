@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
     background: `url(${allPageBanner})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "bottom",
 
     [theme.breakpoints.down("md")]: {
-      minHeight: "30vh",
+      minHeight: "40vh",
     },
   },
   container: {
@@ -26,24 +26,25 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 4rem",
 
     [theme.breakpoints.down("md")]: {
-      height: "30vh",
+      height: "40vh",
+    },
+
+    [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       justifyContent: "center",
       padding: 0,
     },
   },
   contentContainer: {
-    marginBottom: "5rem",
+    width: "70%",
+    marginBottom: "7rem",
 
     [theme.breakpoints.down("md")]: {
-      textAlign: "center",
-      width: "90%",
-      padding: 0,
-      marginBottom: "4rem",
+      marginBottom: "5rem",
     },
 
     [theme.breakpoints.down("sm")]: {
-      marginBottom: "2rem",
+      marginBottom: "4rem",
     },
   },
   title: {
@@ -81,17 +82,16 @@ function AllPageTopBanner({ title }) {
       <div className={classes.root}>
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
-            <Grid item xs={12} lg={5}>
+            <Grid item xs={12} md={5}>
               <Typography variant="h3" className={classes.title}>
                 {title}
               </Typography>
-
               <Typography variant="body1" className={classes.body}>
-                Free gifts and samples with any order when you spend $49.99. End
-                of season sale starts next week, subscrib us for more news.
+                Our formulations have proven efficacy, contain organic
+                ingredients only and are 100% cruelty free.
               </Typography>
             </Grid>
-            <Grid item lg={7}></Grid>
+            <Grid item md={7}></Grid>
           </Grid>
         </div>
       </div>

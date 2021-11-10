@@ -26,7 +26,7 @@ function ShopProductCard() {
 
   useEffect(() => {
     dispatch(dataActions.init());
-  }, [allProductsInfo]);
+  }, [allProductsInfo, dispatch]);
 
   return (
     <>

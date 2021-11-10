@@ -16,12 +16,21 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "bottom",
+
+    [theme.breakpoints.down("md")]: {
+      minHeight: "60vh",
+    },
   },
   container: {
     height: "70vh",
     display: "flex",
     alignItems: "center",
     padding: "0 4rem",
+
+    [theme.breakpoints.down("md")]: {
+      height: "60vh",
+    },
+
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       justifyContent: "center",

@@ -16,12 +16,21 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
+
+    [theme.breakpoints.down("md")]: {
+      minHeight: "60vh",
+    },
   },
   container: {
     height: "90vh",
     display: "flex",
     alignItems: "center",
     padding: "0 4rem",
+
+    [theme.breakpoints.down("md")]: {
+      height: "60vh",
+    },
+
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
       justifyContent: "center",
@@ -33,8 +42,12 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("sm")]: {
       textAlign: "center",
-      width: "90%",
+      width: "60%",
       padding: 0,
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      width: "80%",
     },
   },
   title: {
@@ -69,7 +82,7 @@ function HomeBanner() {
       <div className={classes.root}>
         <div className={classes.container}>
           <Grid container className={classes.contentContainer}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={5}>
               <Typography variant="h3" className={classes.title}>
                 Organic Beauty
               </Typography>
@@ -89,7 +102,7 @@ function HomeBanner() {
                 Shop All
               </Button>
             </Grid>
-            <Grid item md={8}></Grid>
+            <Grid item md={7}></Grid>
           </Grid>
         </div>
       </div>

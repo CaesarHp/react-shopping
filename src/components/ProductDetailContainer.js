@@ -16,7 +16,11 @@ function ProductDetailContainer({
 }) {
   return (
     <>
-      <Grid container columnSpacing={4}>
+      <Grid
+        container
+        columnSpacing={{ xs: 0, lg: 4 }}
+        rowSpacing={{ xs: 6, lg: 0 }}
+      >
         <Grid item xs={12} lg={6}>
           <ProductDetailImg img={img} name={name} />
         </Grid>

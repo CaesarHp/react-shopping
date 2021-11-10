@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
 import { useHistory } from "react-router";
@@ -10,12 +9,19 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ProductDetailContainer from "./ProductDetailContainer";
-import HomeProductCard from "./HomeProductCard";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10rem 6rem",
+
+    [theme.breakpoints.down("md")]: {
+      padding: "8rem 5rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "7rem 1rem",
+    },
   },
   path: {
     cursor: "pointer",
@@ -54,8 +60,6 @@ function ProductDetailMain({
 
     history.push("/shop");
   };
-
-  const cardInfo = useSelector((state) => state.data.newArrivalsInfo);
 
   return (
     <>

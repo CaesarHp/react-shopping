@@ -13,14 +13,14 @@ import ShopProductCard from "./ShopProductCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "6rem",
+    padding: "6rem 2rem",
 
     [theme.breakpoints.down("md")]: {
-      padding: "4rem 6rem",
+      padding: "4rem 2rem",
     },
 
     [theme.breakpoints.down("sm")]: {
-      padding: "2rem 6rem",
+      padding: "2rem",
     },
   },
   pagination: {

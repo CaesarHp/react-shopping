@@ -14,7 +14,7 @@ import Filter from "../ui/Filter";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "0 2rem",
+    margin: "0 2.5rem",
   },
   path: {
     textDecoration: "none",

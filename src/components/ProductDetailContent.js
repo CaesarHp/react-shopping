@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   btnContainer: {
     display: "flex",
+    marginTop: "4rem",
   },
   addToCartBtn: {
     borderRadius: 0,

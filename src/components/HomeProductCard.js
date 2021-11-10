@@ -7,7 +7,10 @@ import ProductCard from "../ui/ProductCard";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
+// import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+// import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import "slick-carousel/slick/slick.css";
@@ -41,17 +44,25 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     position: "absolute",
     cursor: "pointer",
-    top: "50%",
+    top: "40%",
     right: "-5%",
     zIndex: 1000,
+
+    [theme.breakpoints.down("sm")]: {
+      right: "-10%",
+    },
   },
   arrowPrev: {
     color: "black",
     position: "absolute",
     cursor: "pointer",
-    top: "50%",
+    top: "40%",
     left: "-5%",
     zIndex: 1000,
+
+    [theme.breakpoints.down("sm")]: {
+      left: "-10%",
+    },
   },
 }));
 
@@ -71,7 +82,7 @@ export default function HomeProductCard() {
   const PrevArrow = ({ onClick }) => {
     return (
       <div className={classes.arrowPrev} onClick={onClick}>
-        <ArrowBackIosIcon />
+        <ArrowBackIosNewIcon />
       </div>
     );
   };

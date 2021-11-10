@@ -16,6 +16,11 @@ const useStyles = makeStyles((theme) => ({
   spacing: {
     padding: "0 5rem",
     marginBottom: "8rem",
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "0 1rem",
+      marginBottom: "5rem",
+    },
   },
   title: {
     marginBottom: "2rem",
@@ -49,11 +54,22 @@ const useStyles = makeStyles((theme) => ({
   },
   contentTitle: {
     marginBottom: "3rem",
+
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "2rem",
+    },
   },
   contentBody: {
     marginBottom: "1rem",
     fontWeight: 300,
     lineHeight: 1.8,
+  },
+  serviceContainer: {
+    marginBottom: "8rem",
+
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "5rem",
+    },
   },
 }));
 
@@ -79,7 +95,7 @@ function AboutUsMain() {
           </Grid>
           <Grid item xs={12}>
             <div className={classes.spacing}>
-              <Grid container spacing={6}>
+              <Grid container spacing={{ xs: 2, sm: 6 }}>
                 <Grid item xs={12} md={5}>
                   <img
                     alt="cosmetic-banner"
@@ -121,14 +137,14 @@ function AboutUsMain() {
           </Grid>
 
           <Grid item xs={12}>
-            <div style={{ marginBottom: "8rem" }}>
+            <div className={classes.serviceContainer}>
               <HomeService />
             </div>
           </Grid>
 
           <Grid item xs={12}>
             <div className={classes.spacing}>
-              <Grid container spacing={6}>
+              <Grid container spacing={{ xs: 2, sm: 6 }}>
                 <Grid item xs={12} md={7}>
                   <div className={classes.contentContainer}>
                     <Typography variant="h3" className={classes.contentTitle}>

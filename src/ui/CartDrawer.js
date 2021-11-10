@@ -17,8 +17,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import ProductCardHorizontal from "./ProductCardHorizontal";
 
-const drawerWidth = 360;
-
 const useStyles = makeStyles((theme) => ({
   badge: {
     "& .MuiBadge-badge": {
@@ -27,10 +25,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   drawer: {
-    width: drawerWidth,
+    width: 360,
+
+    [theme.breakpoints.down("xs")]: {
+      width: 300,
+    },
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: 360,
+
+    [theme.breakpoints.down("xs")]: {
+      width: 300,
+    },
   },
   drawerHeader: {
     display: "flex",
@@ -78,6 +84,10 @@ const useStyles = makeStyles((theme) => ({
 
     "&:hover": {
       backgroundColor: theme.palette.grey[900],
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "1rem 1.2rem",
     },
   },
 }));

@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       padding: "0 1rem",
     },
+    [theme.breakpoints.down("xs")]: {
+      padding: "0",
+    },
   },
   title: {
     marginBottom: theme.spacing(3),
@@ -76,7 +79,7 @@ function PaymentForm() {
                 spacing={matches ? 0 : 3}
                 justifyContent="space-between"
               >
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <CssTextField
                     variant="outlined"
                     id="firstname"
@@ -84,7 +87,7 @@ function PaymentForm() {
                     className={classes.input}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <CssTextField
                     variant="outlined"
                     id="lastname"
@@ -119,7 +122,7 @@ function PaymentForm() {
                 spacing={matches ? 0 : 3}
                 justifyContent="space-between"
               >
-                <Grid item xs={6} md={8}>
+                <Grid item xs={12} sm={8}>
                   <CssTextField
                     variant="outlined"
                     id="address"
@@ -127,7 +130,7 @@ function PaymentForm() {
                     className={classes.input}
                   />
                 </Grid>
-                <Grid item xs={6} md={4}>
+                <Grid item xs={12} sm={4}>
                   <CssTextField
                     variant="outlined"
                     id="address"
@@ -153,7 +156,7 @@ function PaymentForm() {
                 spacing={matches ? 0 : 3}
                 justifyContent="space-between"
               >
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={4}>
                   <CssTextField
                     variant="outlined"
                     id="country"
@@ -161,7 +164,7 @@ function PaymentForm() {
                     className={classes.input}
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={4}>
                   <CssTextField
                     variant="outlined"
                     id="province"
@@ -169,7 +172,7 @@ function PaymentForm() {
                     className={classes.input}
                   />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={4}>
                   <CssTextField
                     variant="outlined"
                     id="postalcode"
@@ -210,7 +213,7 @@ function PaymentForm() {
                 spacing={matches ? 0 : 3}
                 justifyContent="space-between"
               >
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <CssTextField
                     variant="outlined"
                     id="expiredate"
@@ -218,7 +221,7 @@ function PaymentForm() {
                     className={classes.input}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={6}>
                   <CssTextField
                     variant="outlined"
                     id="securitycode"

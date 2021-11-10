@@ -12,6 +12,10 @@ import PaymentForm from "../ui/PaymentForm";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10rem 6rem",
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "8rem 1rem",
+    },
   },
   title: {
     marginBottom: "4rem",

@@ -14,6 +14,19 @@ import ProductHeadTitle from "../ui/ProductHeadTitle";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "10rem 6rem",
+
+    [theme.breakpoints.down("sm")]: {
+      padding: "8rem 3rem",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      padding: "8rem 1.5rem",
+    },
+  },
+  headTitle: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   title: {
     marginBottom: "4rem",
@@ -50,8 +63,10 @@ function CartMain() {
               <Grid item xs={12} lg={8}>
                 <Grid container>
                   <Grid item xs={12}>
-                    <ProductHeadTitle />
-                    <Divider className={classes.divider} light />
+                    <div className={classes.headTitle}>
+                      <ProductHeadTitle />
+                      <Divider className={classes.divider} light />
+                    </div>
                   </Grid>
                   <Grid item xs={12}>
                     {cartItemInfo.length === 0 ? (

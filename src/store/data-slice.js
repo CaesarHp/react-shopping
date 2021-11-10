@@ -228,6 +228,16 @@ const dataSlice = createSlice({
         });
       }
     },
+
+    clearCart(state) {
+      state.cartItem = [];
+      state.cartTotalQuantity = 0;
+      state.cartTotalPrice = 0;
+      state.allProductsInfo = state.resetProductsInfo;
+      state.pages = 2;
+      state.selectedCategory = "";
+      state.selectedBrand = "";
+    },
   },
 });
 

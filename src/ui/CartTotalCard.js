@@ -33,6 +33,21 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
+  couponContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
+  },
+  couponTitle: {
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: "1rem",
+    },
+  },
   title: {
     marginBottom: "1rem",
   },
@@ -91,6 +106,10 @@ function CartTotalCard({ cartItemInfo, totalPrice, shippingFee }) {
     setShipping(e.target.value);
 
     dispatch(dataActions.changeShippingFee(e.target.value));
+  };
+
+  const paymentHandler = () => {
+    dispatch(dataActions.clearCart());
   };
 
   const productsList =
@@ -183,8 +202,10 @@ function CartTotalCard({ cartItemInfo, totalPrice, shippingFee }) {
           </Grid>
           {location.pathname.includes("/cart/payment") ? null : (
             <Grid item xs={12}>
-              <div className={classes.flexHorizontal}>
-                <Typography variant="h6">Coupon</Typography>
+              <div className={classes.couponContainer}>
+                <Typography variant="h6" className={classes.couponTitle}>
+                  Coupon
+                </Typography>
                 <CssTextField variant="outlined" id="coupon" label="Code" />
               </div>
               <Divider className={classes.divider} light />
@@ -202,17 +223,28 @@ function CartTotalCard({ cartItemInfo, totalPrice, shippingFee }) {
 
           <Grid item xs={12}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button
-                variant="contained"
-                disableElevation
-                component={Link}
-                to="/cart/payment"
-                className={classes.btn}
-              >
-                {location.pathname.includes("/cart/payment")
-                  ? "Check Out"
-                  : "Next Step"}
-              </Button>
+              {location.pathname.includes("/cart/payment") ? (
+                <Button
+                  variant="contained"
+                  disableElevation
+                  component={Link}
+                  to="/home"
+                  onClick={paymentHandler}
+                  className={classes.btn}
+                >
+                  Check Out
+                </Button>
+              ) : (
+                <Button
+                  variant="contained"
+                  disableElevation
+                  component={Link}
+                  to="/cart/payment"
+                  className={classes.btn}
+                >
+                  Next Step
+                </Button>
+              )}
             </div>
           </Grid>
         </Grid>

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem",
   },
   img: {
-    maxWidth: "100%",
+    width: "100%",
     height: "100%",
   },
   contentContainer: {

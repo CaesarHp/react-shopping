@@ -10,7 +10,7 @@ import womanFace2 from "../img/woman-face-2.jpg";
 
 const useStyles = makeStyles((theme) => ({
   img: {
-    maxWidth: "100%",
+    width: "100%",
     height: "100%",
   },
   smallImgContainer: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
   smallImg: {
-    maxWidth: "85%",
+    width: "85%",
   },
 }));
 

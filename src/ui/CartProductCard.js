@@ -14,7 +14,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 const useStyles = makeStyles((theme) => ({
   root: {},
   img: {
-    maxWidth: "100%",
+    width: "100%",
     height: "100%",
   },
   contentContainer: {

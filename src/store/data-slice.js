@@ -190,6 +190,9 @@ const dataSlice = createSlice({
 
       if (sortAction === "Featured") {
         state.allProductsInfo = state.resetProductsInfo;
+        state.pages = 2;
+        state.selectedCategory = "";
+        state.selectedBrand = "";
       } else if (sortAction === "Most Popular") {
         state.allProductsInfo.sort(function (a, b) {
           const nameA = a.name.toUpperCase().replace(" ", "");

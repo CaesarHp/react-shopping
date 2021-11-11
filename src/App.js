@@ -6,14 +6,14 @@ import Theme from "./ui/Theme";
 
 import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./ui/Layout";
-import Home from "./Pages/Home";
-import Shop from "./Pages/Shop";
-import ProductDetail from "./Pages/ProductDetail";
-import Cart from "./Pages/Cart";
-import Payment from "./Pages/Payment";
-import Contact from "./Pages/Contact";
-import AboutUs from "./Pages/AboutUs";
-import NotFound from "./Pages/NotFound";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
+import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
+import NotFound from "./pages/NotFound";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);

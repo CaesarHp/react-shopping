@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function AllPageTopBanner({ title }) {
+function AllPageTopBanner({ title, body }) {
   const classes = useStyles();
 
   return (
@@ -87,8 +87,7 @@ function AllPageTopBanner({ title }) {
                 {title}
               </Typography>
               <Typography variant="body1" className={classes.body}>
-                Our formulations have proven efficacy, contain organic
-                ingredients only and are 100% cruelty free.
+                {body}
               </Typography>
             </Grid>
             <Grid item md={7}></Grid>

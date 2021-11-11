@@ -2,17 +2,18 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { ThemeProvider } from "@material-ui/core";
 import { responsiveFontSizes } from "@material-ui/core";
+import Theme from "./ui/Theme";
 
 import ScrollToTop from "./components/ScrollToTop";
-import Theme from "./ui/Theme";
 import Layout from "./ui/Layout";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import ProductDetail from "./pages/ProductDetail";
-import Cart from "./pages/Cart";
-import Payment from "./pages/Payment";
-import Contact from "./pages/Contact";
-import AboutUs from "./pages/AboutUs";
+import Home from "./Pages/Home";
+import Shop from "./Pages/Shop";
+import ProductDetail from "./Pages/ProductDetail";
+import Cart from "./Pages/Cart";
+import Payment from "./Pages/Payment";
+import Contact from "./Pages/Contact";
+import AboutUs from "./Pages/AboutUs";
+import NotFound from "./Pages/NotFound";
 
 let theme = Theme;
 theme = responsiveFontSizes(theme);
@@ -49,13 +50,12 @@ function App() {
               <Route path="/contact" exact>
                 <Contact />
               </Route>
-              <Route path="/account" exact>
-                Account
-              </Route>
               <Route path="/notfound" exact>
-                Not Found
+                <NotFound />
               </Route>
-              <Route path="*">Not Found</Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
             </Switch>
           </Layout>
         </ThemeProvider>

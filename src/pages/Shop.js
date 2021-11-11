@@ -8,7 +8,9 @@ function Shop() {
     <>
       <AllPageTopBanner
         title={"Shop"}
-        body={"Our formulations have proven efficacy"}
+        body={
+          "Our formulations have proven efficacy, contain organic ingredients only and are 100% cruelty free."
+        }
       />
       <ShopMain />
     </>

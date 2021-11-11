@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   img: {
     width: "100%",
-    height: "100%",
+    maxHeight: "100%",
   },
   contentContainer: {
     height: "100%",

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { dataActions } from "../store/data-slice";
+import { useSelector } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -61,13 +62,11 @@ function Sort() {
 
   const dispatch = useDispatch();
 
-  const [sort, setSort] = useState("Featured");
-
   const sortChangeHandler = (e) => {
-    setSort(e.target.value);
-
     dispatch(dataActions.sort(e.target.value));
   };
+
+  const selectedSortValue = useSelector((state) => state.data.sortValue);
 
   return (
     <>
@@ -77,7 +76,7 @@ function Sort() {
           select
           label="Sort By"
           variant="outlined"
-          value={sort}
+          value={selectedSortValue}
           onChange={sortChangeHandler}
           className={classes.root}
         >

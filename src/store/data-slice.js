@@ -39,6 +39,8 @@ const dataSlice = createSlice({
 
     selectedCategory: "",
     selectedBrand: "",
+
+    sortValue: "Featured",
   },
   reducers: {
     init(state, action) {
@@ -144,6 +146,7 @@ const dataSlice = createSlice({
         state.pages = 2;
         state.selectedCategory = "";
         state.selectedBrand = "";
+        state.sortValue = "Featured";
       }
     },
 
@@ -174,6 +177,7 @@ const dataSlice = createSlice({
         state.pages = 2;
         state.selectedCategory = "";
         state.selectedBrand = "";
+        state.sortValue = "Featured";
       }
     },
 
@@ -187,6 +191,8 @@ const dataSlice = createSlice({
 
     sort(state, action) {
       const sortAction = action.payload;
+
+      state.sortValue = sortAction;
 
       if (sortAction === "Featured") {
         state.allProductsInfo = state.resetProductsInfo;
@@ -240,6 +246,7 @@ const dataSlice = createSlice({
       state.pages = 2;
       state.selectedCategory = "";
       state.selectedBrand = "";
+      state.sortValue = "Featured";
     },
   },
 });
